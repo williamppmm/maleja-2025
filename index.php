@@ -22,6 +22,77 @@
   <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
+<script>
+(function() {
+  const modal = document.getElementById('modal-producto');
+  if (!modal) return;
+  const dialog = modal.querySelector('.modal__dialog');
+  const imgEl = document.getElementById('modal-imagen');
+  const tituloEl = document.getElementById('modal-titulo');
+  const refEl = document.getElementById('modal-ref');
+  const precioEl = document.getElementById('modal-precio');
+  const descEl = document.getElementById('modal-descripcion');
+  const btnWhats = document.getElementById('modal-btn-whatsapp');
+  const btnMail  = document.getElementById('modal-btn-mail');
+  let lastFocus = null;
+
+  const formatCOP = n =>
+    '$' + Number(n).toLocaleString('es-CO', { maximumFractionDigits: 0 });
+
+  function abrir(card){
+    lastFocus = document.activeElement;
+    const nombre = card.dataset.nombre || 'Producto';
+    const ref = card.dataset.referencia || '';
+    const precio = card.dataset.precio || '';
+    const descr = card.dataset.descripcion || '';
+    const img = card.dataset.img || '';
+
+    tituloEl.textContent = nombre;
+    refEl.textContent = ref ? 'Ref: ' + ref : '';
+    precioEl.textContent = precio ? formatCOP(precio) : '';
+    descEl.textContent = descr;
+    imgEl.src = img;
+    imgEl.alt = nombre;
+
+    const msg = encodeURIComponent(`Hola Maleja, me interesa el producto: ${nombre}${ref ? ' (ref '+ref+')' : ''}`);
+    btnWhats.href = `https://wa.me/573172703742?text=${msg}`;
+
+    const subject = encodeURIComponent(`Consulta: ${nombre}${ref ? ' - Ref '+ref : ''}`);
+    const body = encodeURIComponent('Hola, me interesa este modelo. ¿Disponibilidad de tallas?');
+    btnMail.href = `mailto:ventas@malejacalzado.co?subject=${subject}&body=${body}`;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    setTimeout(()=> {
+      const focusBtn = modal.querySelector('.modal__close');
+      if (focusBtn) focusBtn.focus();
+    },40);
+    document.addEventListener('keydown', escClose);
+  }
+
+  function cerrar(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.removeEventListener('keydown', escClose);
+    if (lastFocus) lastFocus.focus();
+  }
+
+  function escClose(e){ if (e.key === 'Escape') cerrar(); }
+
+  document.addEventListener('click', e=>{
+    const trigger = e.target.closest('[data-accion="info"]');
+    if (trigger) {
+      const card = trigger.closest('.producto-card');
+      if (card) abrir(card);
+    }
+    if (e.target.hasAttribute('data-modal-cerrar') || e.target === modal.querySelector('.modal__backdrop')) {
+      cerrar();
+    }
+  });
+})();
+</script>
+
 <body>
   <!-- Acceso rápido para lectores de pantalla -->
   <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
@@ -79,6 +150,26 @@
       <div class="container">
         <h2 id="productos-destacados-title" class="section__title">¡Lo más chévere! 😎</h2>
         <p class="section__subtitle">Las sandalias que están causando furor</p>
+      <?php
+      require_once __DIR__ . '/config/db.php';
+
+      $sql = "
+        SELECT p.id, p.nombre, p.referencia, p.slug, p.precio, p.descripcion_corta,
+              COALESCE(i.filename, 'assets/images/placeholders/placeholder-producto.png') AS imagen
+        FROM productos p
+        LEFT JOIN producto_imagenes i
+          ON i.producto_id = p.id AND i.principal = 1
+        WHERE p.destacado = 1 AND p.activo = 1
+        ORDER BY p.orden_destacado, p.id
+        LIMIT 4
+      ";
+      $destacados = [];
+      try {
+        $destacados = $pdo->query($sql)->fetchAll();
+      } catch (Throwable $e) {
+        // error_log($e->getMessage());
+      }
+      ?>
       <div class="grid-productos grid-productos--2">
         <!-- Tarjeta de producto 1 -->
         <article class="producto-card" data-id="prod-8330" data-categoria="sandalia-plana">
@@ -198,6 +289,35 @@
       </div>
     </div>
   </footer>
+  <!-- MODAL PRODUCTO -->
+  <div class="modal" id="modal-producto" aria-hidden="true" aria-labelledby="modal-titulo" role="dialog">
+    <div class="modal__backdrop" data-modal-cerrar></div>
+    <div class="modal__dialog" role="document">
+      <button class="modal__close" type="button" aria-label="Cerrar" data-modal-cerrar>&times;</button>
+      <div class="modal__content">
+        <div class="modal__img-wrap">
+          <img src="" alt="" id="modal-imagen">
+        </div>
+        <div class="modal__info">
+          <h3 id="modal-titulo" class="modal__title"></h3>
+          <p class="modal__ref" id="modal-ref"></p>
+          <p class="modal__precio" id="modal-precio"></p>
+          <p class="modal__descripcion" id="modal-descripcion"></p>
+          <div class="modal__actions">
+            <a id="modal-btn-whatsapp" class="btn btn--whatsapp" target="_blank" rel="noopener" href="#">
+              Pedir por WhatsApp
+            </a>
+            <a id="modal-btn-mail" class="btn btn--secondary" href="#">
+              Escribir por correo
+            </a>
+            <a id="modal-btn-ver" class="btn btn--outline" href="productos.html">
+              Ver más modelos
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Script para interacción futura con modales de productos -->
   <script src="assets/js/script.js" defer></script>

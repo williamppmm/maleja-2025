@@ -1,0 +1,17 @@
+# Archivos sensibles / locales
+.env
+.env.local
+*.log
+
+# Dependencias (si algún día usas Composer / Node)
+vendor/
+node_modules/
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Cachés
+*.cache
