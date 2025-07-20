@@ -155,3 +155,5 @@ function getProjectStats(dir) {
     countFiles(dir);
     return stats;
 }
+
+// Ejecutar con: node tree-generator.js

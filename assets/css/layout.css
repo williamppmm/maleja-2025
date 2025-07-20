@@ -1,0 +1,298 @@
+/* HEADER / NAV */
+/* Estilos para el encabezado y navegación */
+.header {
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid #222;
+}
+.header__inner {
+    /* Grid para organizar logo, nav y redes */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: .9rem 0;
+}
+.logo {
+    /* Tamaño del logo */
+    height: 60px;
+    width: auto;
+}
+
+.nav__list {
+    /* Lista de navegación horizontal */
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2.2rem;
+    flex-wrap: wrap;
+}
+.nav__link {
+    /* Enlaces de navegación */
+    position: relative;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: .3px;
+}
+.nav__link--active::after,
+.nav__link:hover::after {
+    /* Línea debajo del enlace activo o al pasar el mouse */
+    content:"";
+    position: absolute;
+    left:0;
+    bottom:-6px;
+    width:100%;
+    height:2px;
+    background: var(--color-primary);
+    border-radius:2px;
+}
+
+/* SOCIAL HEADER */
+/* Iconos de redes sociales en el header */
+.social--header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.social--header img {
+    width:24px;
+    height:24px;
+    filter: grayscale(.1) brightness(1);
+    transition: var(--transition);
+}
+.social--header a:hover img {
+    filter: brightness(1.4);
+}
+
+/* HERO */
+/* Sección principal (hero) */
+.hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+}
+.hero__media {
+    /* Imagen de fondo */
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+.hero__img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    filter: brightness(.58);
+}
+.hero__overlay {
+    /* Superposición oscura */
+    position: relative;
+    z-index: 2;
+    width:100%;
+    display:flex;
+    align-items:center;
+    padding:4rem 0 3rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.65));
+}
+.hero__content {
+    /* Contenido centrado */
+    max-width:760px;
+    margin-inline:auto;
+    text-align:center;
+    padding:0 1rem;
+}
+.hero__title {
+    /* Título principal */
+    font-family: Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.3rem);
+    font-weight:700;
+    line-height:1.1;
+    margin-bottom:1rem;
+    letter-spacing:.5px;
+}
+.hero__slogan {
+    /* Slogan debajo del título */
+    font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+    font-style: italic;
+    color:#f1e6cb;
+    margin-bottom:2.2rem;
+}
+.hero__actions {
+    /* Botones de acción */
+    display:flex;
+    justify-content:center;
+    gap:1.2rem;
+    flex-wrap:wrap;
+}
+
+/* SECCIONES */
+/* Espaciado y estilos para secciones */
+.section {
+    padding:4.2rem 0 3.4rem;
+}
+.section--alt {
+    background:#121212;
+}
+.section__title {
+    /* Título de sección */
+    font-family: Georgia, serif;
+    font-size: clamp(1.9rem, 3.8vw, 2.45rem);
+    margin-bottom:2.3rem;
+    text-align:center;
+    letter-spacing:.4px;
+}
+.section__subtitle {
+    /* Subtítulo de sección */
+    text-align:center;
+    margin-bottom:2rem;
+    color: var(--color-text-soft);
+    font-size:1.1rem;
+    font-style:italic;
+}
+
+/* GRID PRODUCTOS */
+/* Grid para mostrar productos */
+.grid-productos {
+    display:grid;
+    gap:1.9rem;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+}
+.grid-productos--2 {
+    /* Grid de dos columnas */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 980px;
+    margin-inline:auto;
+}
+@media (max-width:680px) {
+    .grid-productos--2 {
+        /* Una columna en pantallas pequeñas */
+        grid-template-columns:1fr;
+    }
+}
+
+/* ABOUT SHORT */
+/* Texto corto sobre la empresa/persona */
+.about-short__text {
+    max-width:650px;
+    margin-inline:auto;
+    text-align:center;
+    line-height:1.52;
+    font-size:1.06rem;
+    color: var(--color-text-soft);
+}
+.about-short__text p {
+    margin-bottom:1.7rem;
+}
+
+/* FOOTER */
+/* Estilos para el pie de página */
+.footer {
+    background: var(--color-bg-alt);
+    border-top:1px solid #181818;
+    margin-top:2.8rem;
+    padding:3rem 0 1.4rem;
+}
+.footer__grid {
+    /* Grid de columnas en el footer */
+    display:grid;
+    gap:2.2rem;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    margin-bottom:2rem;
+    text-align:center;
+    justify-items:center;
+}
+.footer__col img {
+    margin-inline:auto;
+}
+.footer__heading {
+    font-size:1.07rem;
+    margin-bottom:.85rem;
+    font-weight:600;
+    letter-spacing:.4px;
+}
+.footer__list {
+    /* Lista de enlaces en el footer */
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:.45rem;
+    padding:0;
+    margin:0;
+}
+.footer__list a {
+    color:#ccc;
+    font-size:.95rem;
+}
+.footer__list a:hover { color: var(--color-primary); }
+.footer__tagline {
+    font-size:.83rem;
+    color:#b9b9b9;
+}
+.social--footer {
+    /* Iconos de redes sociales en el footer */
+    display:flex;
+    gap:1rem;
+    align-items:center;
+}
+.social--footer img {
+    width:26px;
+    height:26px;
+    transition: var(--transition);
+}
+.social--footer a:hover img {
+    filter: brightness(1.4);
+}
+.copyright {
+    /* Línea y texto de copyright */
+    border-top:1px solid #181818;
+    padding-top:1rem;
+    text-align:center;
+    font-size:.74rem;
+    color:#888;
+    letter-spacing:.4px;
+}
+
+/* RESPONSIVE */
+/* Adaptación a pantallas pequeñas */
+@media (max-width:880px) {
+    .header__inner {
+        grid-template-columns:auto auto;
+        grid-template-areas:
+            "logo social"
+            "nav nav";
+        row-gap:1rem;
+    }
+    .header__brand { grid-area:logo; }
+    .nav { grid-area:nav; }
+    .social--header { grid-area:social; }
+    .nav__list {
+        justify-content:flex-start;
+        gap:1.2rem;
+    }
+    .hero {
+        min-height:92vh;
+    }
+    .hero__title { font-size:clamp(2rem,7vw,2.6rem); }
+    .hero__actions { gap:.9rem; }
+    .hero__actions .btn {
+        flex:1 1 180px;
+        min-width:46%;
+    }
+}
+
+@media (max-width:480px) {
+    .hero__title { font-size:clamp(1.9rem,8vw,2.3rem); }
+    .hero__slogan { margin-bottom:1.6rem; }
+    .nav__list { gap:.9rem; }
+}
+
+/* ========== CTA SECCIÓN ========== */
+.section__cta {
+  margin-top: 2.1rem;
+  text-align: center;
+}
+
+.section__cta .btn {
+  min-width: 230px;          /* opcional: da presencia */
+  letter-spacing: .4px;      /* sutil mejora visual */
+}

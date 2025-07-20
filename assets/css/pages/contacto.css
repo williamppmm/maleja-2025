@@ -1,0 +1,320 @@
+/* =========================================================
+   PÁGINA: CONTACTO (contacto.css)
+   ========================================================= */
+
+/* ========== HERO CONTACTO ========== */
+.hero-contacto {
+  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.hero-contacto__title {
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.hero-contacto__subtitle {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-contacto__texto {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ========== MÉTODOS DE CONTACTO ========== */
+.metodos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.metodo-card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-l);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+}
+
+.metodo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+}
+
+.metodo-card--principal {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-panel) 0%, rgba(212, 175, 55, 0.05) 100%);
+}
+
+.metodo-card--principal::before {
+  content: "Recomendado";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: #111;
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.metodo-card__icon {
+  margin-bottom: 1.5rem;
+}
+
+.metodo-card__icon img {
+  width: 48px;
+  height: 48px;
+  filter: brightness(1.2);
+}
+
+.metodo-card__title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.metodo-card__subtitle {
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.metodo-card__texto {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  margin-bottom: 1.5rem;
+}
+
+.metodo-card__info {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.2);
+  border-radius: var(--radius-m);
+}
+
+.metodo-card__dato {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.metodo-card__horario {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  margin-bottom: 0.3rem;
+}
+
+.metodo-card__nota {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.metodo-card__social {
+  margin-bottom: 1.5rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  color: var(--color-primary);
+}
+
+.metodo-card__proximamente {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  font-style: italic;
+}
+
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  min-width: 200px;
+}
+
+/* ========== PROCESO ========== */
+.proceso-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step__number {
+  width: 60px;
+  height: 60px;
+  background: var(--color-primary);
+  color: #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 1rem;
+}
+
+.step__title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.step__texto {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+}
+
+/* ========== FAQ ========== */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.faq-item {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-l);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.faq-item:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.8rem;
+}
+
+.faq-answer {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+
+/* ========== CTA FINAL ========== */
+.cta-final__content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-final__title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.cta-final__texto {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  margin-bottom: 2rem;
+}
+
+.cta-final__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero-contacto {
+    padding: 3rem 0;
+  }
+  
+  .metodos-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .proceso-steps {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-final__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn--large {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .metodo-card {
+    padding: 1.5rem;
+  }
+  
+  .metodo-card__info {
+    padding: 0.8rem;
+  }
+  
+  .step__number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+  
+  .faq-item {
+    padding: 1.2rem;
+  }
+}
