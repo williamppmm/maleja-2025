@@ -1,46 +1,74 @@
+/* ========== RESET Y VARIABLES ========== */
 /* Reset de estilos básicos para todos los elementos */
-* { margin:0; padding:0; box-sizing:border-box; }
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
 /* Variables CSS globales */
 :root {
-  --color-bg:#000; /* Fondo principal */
-  --color-bg-alt:#111; /* Fondo alternativo */
-  --color-panel:#181818; /* Fondo de paneles */
-  --color-line:#262626; /* Color de líneas/divisiones */
-  --color-text:#f5f5f5; /* Color de texto principal */
-  --color-text-soft:#d6d6d6; /* Color de texto secundario */
-  --color-primary:#d4af37; /* Color primario (enlaces, acentos) */
-  --color-primary-hover:#b89427; /* Color primario al pasar el mouse */
-  --color-accent-insta:#e1306c; /* Color acento Instagram */
-  --color-accent-whatsapp:#25D366; /* Color acento WhatsApp */
-  --radius-s:4px; /* Radio pequeño */
-  --radius-m:6px; /* Radio mediano */
-  --radius-l:10px; /* Radio grande */
-  --shadow-soft:0 6px 18px -6px rgba(0,0,0,.6); /* Sombra suave */
-  --max-width:1200px; /* Ancho máximo de contenedor */
-  --transition:.3s ease; /* Transición estándar */
-  font-size:16px; /* Tamaño de fuente base */
+  --color-bg: #000; /* Fondo principal */
+  --color-bg-alt: #111; /* Fondo alternativo */
+  --color-panel: #181818; /* Fondo de paneles */
+  --color-line: #262626; /* Color de líneas/divisiones */
+  --color-text: #f5f5f5; /* Color de texto principal */
+  --color-text-soft: #d6d6d6; /* Color de texto secundario */
+  --color-primary: #d4af37; /* Color primario (enlaces, acentos) */
+  --color-primary-hover: #b89427; /* Color primario al pasar el mouse */
+  --color-accent-insta: #e1306c; /* Color acento Instagram */
+  --color-accent-whatsapp: #25D366; /* Color acento WhatsApp */
+  --radius-s: 4px; /* Radio pequeño */
+  --radius-m: 6px; /* Radio mediano */
+  --radius-l: 10px; /* Radio grande */
+  --shadow-soft: 0 6px 18px -6px rgba(0,0,0,.6); /* Sombra suave */
+  --max-width: 1200px; /* Ancho máximo de contenedor */
+  --transition: .3s ease; /* Transición estándar */
+  font-size: 16px; /* Tamaño de fuente base */
 }
 
+/* ========== ESTILOS GLOBALES ========== */
 /* Estilos generales del body */
 body {
-  font-family:'Segoe UI', system-ui, sans-serif; /* Fuente principal */
-  background:var(--color-bg); /* Fondo */
-  color:var(--color-text); /* Color de texto */
-  line-height:1.45; /* Altura de línea */
-  -webkit-font-smoothing:antialiased; /* Suavizado de fuentes en Webkit */
+  font-family: 'Segoe UI', system-ui, sans-serif; /* Fuente principal */
+  background: var(--color-bg); /* Fondo */
+  color: var(--color-text); /* Color de texto */
+  line-height: 1.45; /* Altura de línea */
+  -webkit-font-smoothing: antialiased; /* Suavizado de fuentes en Webkit */
 }
 
 /* Imágenes responsivas */
-img { max-width:100%; display:block; }
+img { 
+  max-width: 100%; 
+  display: block; 
+}
 
 /* Estilos para enlaces */
-a { color:var(--color-primary); text-decoration:none; transition:var(--transition); }
-a:hover { color:var(--color-primary-hover); }
+a { 
+  color: var(--color-primary); 
+  text-decoration: none; 
+  transition: var(--transition); 
+}
+a:hover { 
+  color: var(--color-primary-hover); 
+}
 
 /* Contenedor principal centrado y con ancho máximo */
-.container { width:min(100% - 2rem, var(--max-width)); margin-inline:auto; }
+.container { 
+  width: min(100% - 2rem, var(--max-width)); 
+  margin-inline: auto; 
+}
 
 /* Enlace para saltar al contenido (accesibilidad) */
-.skip-link { position:absolute; top:-100%; left:0; background:#000; color:#fff; padding:.5rem 1rem; z-index:999; }
-.skip-link:focus { top:0; }
+.skip-link { 
+  position: absolute; 
+  top: -100%; 
+  left: 0; 
+  background: #000; 
+  color: #fff; 
+  padding: .5rem 1rem; 
+  z-index: 999; 
+}
+.skip-link:focus { 
+  top: 0; 
+}

@@ -1,5 +1,4 @@
-/* ========== BOTONES ========== */
-/* Estilos base para los botones */
+/* ========== BOTONES (CORREGIDOS) ========== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -19,13 +18,18 @@
   color: #111;
 }
 
-/* Botón primario */
+/* Botón primario - EFECTO IGUAL QUE WHATSAPP */
 .btn--primary {
   background: var(--color-primary);
   color: #111;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
 }
+
 .btn--primary:hover {
-  background: var(--color-primary-hover);
+  background: #b89427; /* Amarillo más oscuro e intenso */
+  color: #ffffff; /* BLANCO para el mismo efecto llamativo */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
 /* Botón secundario */
@@ -34,18 +38,24 @@
   color: var(--color-text-soft);
   border: 2px solid #333;
 }
+
 .btn--secondary:hover {
   background: #333;
   color: #fff;
 }
 
-/* Botón estilo WhatsApp */
+/* Botón WhatsApp - HOVER CORREGIDO */
 .btn--whatsapp {
   background: var(--color-accent-whatsapp);
   color: #111;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
 }
+
 .btn--whatsapp:hover {
-  filter: brightness(1.08);
+  background: #20b558;
+  color: #ffffff; /* BLANCO para máximo contraste */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
 }
 
 /* Botón con borde (outline) */
@@ -54,18 +64,20 @@
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
 }
+
 .btn--outline:hover {
   background: var(--color-primary);
   color: #111;
 }
 
-/* Variante de botón secundario dentro del bloque about */
+/* Variante especial para about section */
 .about-short__text .btn--secondary {
   background: transparent;
   border: 2px solid var(--color-primary);
   color: var(--color-primary);
   box-shadow: none;
 }
+
 .about-short__text .btn--secondary:hover {
   background: var(--color-primary);
   color: #111;
@@ -73,7 +85,6 @@
 }
 
 /* ========== TARJETAS DE PRODUCTO ========== */
-/* Tarjeta de producto */
 .producto-card {
   background: var(--color-panel);
   border: 1px solid var(--color-line);
@@ -85,7 +96,7 @@
   position: relative;
   isolation: isolate;
 }
-/* Efecto de sombra al pasar el mouse */
+
 .producto-card::after {
   content: "";
   position: absolute;
@@ -95,17 +106,21 @@
   transition: var(--transition);
   z-index: 1;
 }
+
 .producto-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-soft);
   border-color: #303030;
 }
+
 .producto-card:hover::after {
   opacity: 1;
 }
 
-/* Imagen de la tarjeta */
-.producto-card__media { position: relative; }
+.producto-card__media { 
+  position: relative; 
+}
+
 .producto-card__img {
   width: 100%;
   aspect-ratio: 4/5;
@@ -113,7 +128,6 @@
   display: block;
 }
 
-/* Cuerpo de la tarjeta */
 .producto-card__body {
   padding: 1rem 1rem 1.4rem;
   display: flex;
@@ -122,10 +136,12 @@
   position: relative;
   z-index: 2;
 }
+
 .producto-card__title {
   font-size: 1.06rem;
   font-weight: 600;
 }
+
 .producto-card__precio {
   color: var(--color-primary);
   font-weight: 700;
@@ -134,17 +150,17 @@
 }
 
 /* ========== MODAL PRODUCTO ========== */
-/* Modal base */
 .modal {
   position: fixed;
   inset: 0;
   display: none;
   z-index: 9999;
 }
-/* Mostrar modal cuando está abierto */
-.modal.is-open { display: block; }
 
-/* Fondo del modal */
+.modal.is-open { 
+  display: block; 
+}
+
 .modal__backdrop {
   position: absolute;
   inset: 0;
@@ -153,7 +169,6 @@
   backdrop-filter: blur(2px);
 }
 
-/* Diálogo del modal */
 .modal__dialog {
   position: relative;
   max-width: 920px;
@@ -166,13 +181,11 @@
   animation: modal-fade .45s ease;
 }
 
-/* Animación de aparición del modal */
 @keyframes modal-fade {
   0% { opacity: 0; transform: translateY(22px) scale(.97); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Botón para cerrar el modal */
 .modal__close {
   position: absolute;
   top: 8px;
@@ -190,12 +203,12 @@
   cursor: pointer;
   transition: .3s;
 }
+
 .modal__close:hover {
   background: #2d2d2d;
   color: #fff;
 }
 
-/* Contenido del modal */
 .modal__content {
   display: grid;
   grid-template-columns: 380px 1fr;
@@ -203,7 +216,6 @@
   padding: 1.8rem 2rem 2.2rem;
 }
 
-/* Imagen dentro del modal */
 .modal__img-wrap {
   background: #181818;
   border: 1px solid #272727;
@@ -214,6 +226,7 @@
   justify-content: center;
   overflow: hidden;
 }
+
 .modal__img-wrap img {
   width: 100%;
   height: 100%;
@@ -221,22 +234,24 @@
   transform: scale(.9);
   transition: .6s;
 }
+
 .modal__img-wrap:hover img {
   transform: scale(.96);
 }
 
-/* Información del producto en el modal */
 .modal__info {
   display: flex;
   flex-direction: column;
   gap: .9rem;
 }
+
 .modal__title {
   font-size: 1.55rem;
   line-height: 1.2;
   font-family: Georgia, serif;
   margin: 0;
 }
+
 .modal__ref {
   font-size: .8rem;
   letter-spacing: .5px;
@@ -244,46 +259,34 @@
   color: #bbb;
   margin-top: -.4rem;
 }
+
 .modal__precio {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-primary);
   margin: .4rem 0 .2rem;
 }
+
 .modal__descripcion {
   font-size: .97rem;
   line-height: 1.5;
   color: #d4d4d4;
   margin-bottom: .4rem;
 }
+
 .modal__actions {
   display: flex;
   flex-wrap: wrap;
   gap: .8rem;
   margin-top: .8rem;
 }
-/* Botones dentro de las acciones del modal */
+
 .modal__actions .btn {
   flex: 1 1 180px;
   font-size: .85rem;
   padding: .75rem 1rem;
 }
 
-/* ========== RESPONSIVE ========== */
-/* Adaptación para pantallas pequeñas */
-@media (max-width: 860px) {
-  .modal__content {
-    grid-template-columns: 1fr;
-    padding: 1.6rem 1.3rem 2rem;
-  }
-  .modal__img-wrap {
-    max-width: 360px;
-    margin: 0 auto;
-  }
-  .modal__actions .btn {
-    flex: 1 1 100%;
-  }
-}
 /* ========== SPINNER DE CARGA ========== */
 .loading-spinner {
   display: flex;
@@ -305,6 +308,28 @@
   100% { transform: rotate(360deg); }
 }
 
-/* ========== UTILIDADES PEQUEÑAS (si las necesitas) ========== */
-/* Ejemplo: centrar texto rápido */
-/* .text-center { text-align:center; } */
+/* ========== RESPONSIVE COMPONENTS ========== */
+@media (max-width: 860px) {
+  .modal__content {
+    grid-template-columns: 1fr;
+    padding: 1.6rem 1.3rem 2rem;
+  }
+  
+  .modal__img-wrap {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  
+  .modal__actions .btn {
+    flex: 1 1 100%;
+  }
+}
+
+/* ========== UTILIDADES ========== */
+.mensaje--vacio {
+  text-align: center;
+  color: var(--color-text-soft);
+  font-style: italic;
+  padding: 2rem;
+  grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+}

@@ -20,8 +20,7 @@ include __DIR__ . '/includes/header.php';
         <h1 class="hero-nosotras__title">Hola, soy María Alejandra</h1>
         <p class="hero-nosotras__subtitle">La persona detrás de MALEJA Calzado</p>
         <p class="hero-nosotras__intro">
-          Emprendedora, madre de 5 hijos y apasionada por el calzado femenino. 
-          Con más de 10 años conectando con mujeres a través del estilo y la calidad.
+          Emprendedora construyendo una relación auténtica con mujeres que buscan sentirse seguras, cómodas y con estilo.
         </p>
       </div>
       <div class="hero-nosotras__image">
@@ -43,23 +42,22 @@ include __DIR__ . '/includes/header.php';
     <div class="historia__content">
       <div class="historia__text">
         <p class="historia__lead">
-          Hace más de 10 años descubrí mi pasión: ayudar a las mujeres a encontrar 
-          ese calzado perfecto que las haga sentir seguras, cómodas y hermosas.
+          Mi pasión nació de una simple verdad: 
+          cada mujer merece encontrar ese calzado perfecto que la haga sentir segura, cómoda y hermosa.
         </p>
         
         <p>
-          Durante todos estos años he trabajado de cerca con la moda y el calzado femenino, 
-          aprendiendo sobre estilos que se renuevan constantemente y, sobre todo, 
-          sobre la importancia de la calidad. Como madre de 5 hijos, entiendo perfectamente 
-          que cada peso cuenta, y por eso me he forjado a pulso para ofrecer siempre 
-          lo mejor a mis clientas.
+          A lo largo de mi trayectoria he trabajado de cerca con la moda y el calzado femenino, 
+          aprendiendo sobre estilos que evolucionan constantemente y, sobre todo, sobre lo que realmente importa: 
+          la calidad. Entiendo que cada inversión debe valer la pena, por eso me he especializado en seleccionar 
+          únicamente lo mejor para mis clientas.
         </p>
         
         <p>
-          Mi experiencia me ha llevado a conocer la excepcional calidad del calzado de 
-          Bucaramanga, reconocido en todo el país por su tradición y excelencia. 
-          Sin embargo, también valoro y distribuyo diseños de Cali y otras ciudades 
-          que mantienen esos altos estándares que busco.
+          Mi experiencia me ha llevado a desarrollar un ojo crítico para identificar calzado de excelente calidad, 
+          trabajando con emprendedoras que mantienen los más altos estándares. 
+          Cada pieza de nuestro catálogo es cuidadosamente seleccionada pensando en mujeres que valoran 
+          tanto el estilo como la durabilidad.
         </p>
       </div>
     </div>
@@ -80,17 +78,16 @@ include __DIR__ . '/includes/header.php';
         <p class="llegada-cali__texto">
           Sabemos que las mujeres de Cali tienen un estilo particular, esa actitud 
           y ese flow que las hace únicas. Por eso, cada pieza de nuestro catálogo 
-          se selecciona pensando en ustedes: <strong>calzado hermoso que se ajuste al estilo 
-          caleño, pero que conserve la calidad que caracteriza el calzado de Bucaramanga.</strong>
+          se selecciona pensando en ustedes: <strong>calzado hermoso, con la calidad, comodidad y durabilidad que merecen.</strong>
         </p>
       </div>
       <div class="llegada-cali__highlight">
         <div class="highlight-card">
-          <h3 class="highlight-card__title">¿Por qué Bucaramanga?</h3>
+          <h3 class="highlight-card__title">¡Cali-dad!</h3>
           <p class="highlight-card__text">
-            Bucaramanga es la capital del calzado en Colombia. Su tradición, 
-            técnicas artesanales y control de calidad son incomparables. 
-            Esa es la base de nuestro catálogo.
+            Seleccionamos cada diseño bajo estrictos estándares de calidad, 
+            comodidad y estilo. Trabajamos solo con marcas que garantizan 
+            los mejores diseños para mujeres que saben lo que quieren.
           </p>
         </div>
       </div>
@@ -108,9 +105,9 @@ include __DIR__ . '/includes/header.php';
         <div class="filosofia__icon">👥</div>
         <h3 class="filosofia__subtitle">Conexión personal</h3>
         <p class="filosofia__text">
-          Soy muy conversadora y me encanta conectar con mis clientas. 
-          Cada mujer es única y merece una atención personalizada para 
-          encontrar exactamente lo que busca.
+          Me gusta conversar y escuchar. 
+          Cada mujer es única y merece una recomendación honesta que responda a su estilo, 
+          su ritmo y lo que realmente necesita.
         </p>
       </div>
       
@@ -118,9 +115,8 @@ include __DIR__ . '/includes/header.php';
         <div class="filosofia__icon">✨</div>
         <h3 class="filosofia__subtitle">Calidad ante todo</h3>
         <p class="filosofia__text">
-          Cada par que selecciono pasa por mi filtro personal. 
-          Después de 10 años en esto, reconozco la calidad al primer vistazo 
-          y solo ofrezco lo que yo misma usaría.
+          Solo incluyo pares que pasan mi filtro: horma cómoda, materiales confiables, buen acabado y presencia. 
+          Trabajo con talleres y marcas que respetan ese estándar para que cada paso se sienta suave y seguro.
         </p>
       </div>
       
@@ -128,8 +124,8 @@ include __DIR__ . '/includes/header.php';
         <div class="filosofia__icon">💝</div>
         <h3 class="filosofia__subtitle">Asesoría completa</h3>
         <p class="filosofia__text">
-          No solo vendo calzado, te asesoro para que elijas el producto perfecto. 
-          Mi objetivo es que te sientas completamente satisfecha con tu compra.
+          No es solo vender: te acompaño a elegir el par adecuado, resuelvo dudas de tallas, uso y cuidado. 
+          Busco que recibas justo lo que esperabas y quedes tranquila con tu compra.
         </p>
       </div>
     </div>
@@ -142,9 +138,9 @@ include __DIR__ . '/includes/header.php';
     <div class="futuro__content">
       <h2 id="futuro-title" class="section__title">Construyendo el futuro juntas</h2>
       <p class="futuro__text">
-        MALEJA Calzado está creciendo, y con el apoyo de las redes sociales 
-        y el boca a boca que tanto me gusta, estamos expandiendo nuestra familia 
-        de clientas satisfechas. 
+        MALEJA Calzado está creciendo, 
+        y con el apoyo de las redes sociales y las recomendaciones de clientas satisfechas, 
+        estamos expandiendo nuestra comunidad.
       </p>
       <p class="futuro__text">
         Mi sueño es llegar no solo a toda Cali, sino a toda Colombia, 

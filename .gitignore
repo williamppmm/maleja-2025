@@ -1,6 +1,7 @@
 # Archivos sensibles / locales
 .env
 .env.local
+.env.production
 *.log
 
 # Dependencias (si algún día usas Composer / Node)
