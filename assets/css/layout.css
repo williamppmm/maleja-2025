@@ -1,4 +1,5 @@
 /* ========== HEADER / NAVEGACIÓN ========== */
+/* Estilos para el encabezado y navegación principal */
 .header {
   background: var(--color-bg-alt);
   border-bottom: 1px solid #222;
@@ -17,6 +18,7 @@
   width: auto;
 }
 
+/* Lista de navegación */
 .nav__list {
   list-style: none;
   display: flex;
@@ -25,6 +27,7 @@
   flex-wrap: wrap;
 }
 
+/* Enlaces de navegación */
 .nav__link {
   position: relative;
   font-weight: 600;
@@ -32,6 +35,7 @@
   letter-spacing: .3px;
 }
 
+/* Indicador de enlace activo o hover */
 .nav__link--active::after,
 .nav__link:hover::after {
   content: "";
@@ -45,6 +49,7 @@
 }
 
 /* ========== REDES SOCIALES HEADER ========== */
+/* Iconos de redes sociales en el header */
 .social--header {
   display: flex;
   gap: 1rem;
@@ -54,15 +59,17 @@
 .social--header img {
   width: 24px;
   height: 24px;
-  filter: grayscale(.1) brightness(1);
-  transition: var(--transition);
+  transition: opacity var(--transition), transform var(--transition);
 }
 
+/* Efecto hover en iconos sociales */
 .social--header a:hover img {
-  filter: brightness(1.4);
+  opacity: .8;
+  transform: scale(1.1);
 }
 
-/* ========== HERO SECTION ========== */
+/* ========== HERO SECTION - IMAGEN MÁS CLARA ========== */
+/* Sección principal hero */
 .hero {
   position: relative;
   min-height: 88vh;
@@ -71,6 +78,7 @@
   overflow: hidden;
 }
 
+/* Imagen de fondo del hero */
 .hero__media {
   position: absolute;
   inset: 0;
@@ -81,9 +89,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.58);
+  object-position: center center;
+  filter: brightness(.95);  /* Imagen más clara */
 }
 
+/* Overlay para mejorar legibilidad */
 .hero__overlay {
   position: relative;
   z-index: 2;
@@ -91,9 +101,10 @@
   display: flex;
   align-items: center;
   padding: 4rem 0 3rem;
-  background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.65));
+  background: linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.35));
 }
 
+/* Contenido del hero */
 .hero__content {
   max-width: 760px;
   margin-inline: auto;
@@ -101,6 +112,7 @@
   padding: 0 1rem;
 }
 
+/* Título principal del hero */
 .hero__title {
   font-family: Georgia, serif;
   font-size: clamp(2.2rem, 5vw, 3.3rem);
@@ -108,33 +120,39 @@
   line-height: 1.1;
   margin-bottom: 1rem;
   letter-spacing: .5px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
+/* Slogan del hero */
 .hero__slogan {
   font-size: clamp(1.15rem, 2.4vw, 1.6rem);
   font-style: italic;
   color: #f1e6cb;
   margin-bottom: 2.2rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
 }
 
-/* BOTONES DEL HERO - CORREGIDOS */
+/* Botones de acción en el hero */
 .hero__actions {
   display: flex;
   justify-content: center;
-  gap: 2.5rem; /* MAYOR SEPARACIÓN */
+  gap: 2.5rem;
   flex-wrap: wrap;
   margin-top: 0.8rem;
 }
 
 /* ========== SECCIONES GENERALES ========== */
+/* Secciones generales */
 .section {
   padding: 4.2rem 0 3.4rem;
 }
 
+/* Sección alternativa */
 .section--alt {
   background: #121212;
 }
 
+/* Título de sección */
 .section__title {
   font-family: Georgia, serif;
   font-size: clamp(1.9rem, 3.8vw, 2.45rem);
@@ -143,6 +161,7 @@
   letter-spacing: .4px;
 }
 
+/* Subtítulo de sección */
 .section__subtitle {
   text-align: center;
   margin-bottom: 2rem;
@@ -151,30 +170,34 @@
   font-style: italic;
 }
 
+/* CTA de sección */
 .section__cta {
   margin-top: 2.1rem;
   text-align: center;
 }
 
-.section__cta .btn {
-  min-width: 230px;
-  letter-spacing: .4px;
-}
-
 /* ========== GRID PRODUCTOS ========== */
+/* Grid para productos */
 .grid-productos {
   display: grid;
   gap: 1.9rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
 }
 
+/* Grid de dos columnas */
 .grid-productos--2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   max-width: 980px;
   margin-inline: auto;
 }
 
+/* Grid catálogo */
+.grid-productos--catalogo {
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+}
+
 /* ========== ABOUT SHORT ========== */
+/* Texto corto de "about" */
 .about-short__text {
   max-width: 650px;
   margin-inline: auto;
@@ -189,6 +212,7 @@
 }
 
 /* ========== FOOTER ========== */
+/* Pie de página */
 .footer {
   background: var(--color-bg-alt);
   border-top: 1px solid #181818;
@@ -196,6 +220,7 @@
   padding: 3rem 0 1.4rem;
 }
 
+/* Grid del footer */
 .footer__grid {
   display: grid;
   gap: 2.2rem;
@@ -209,6 +234,7 @@
   margin-inline: auto;
 }
 
+/* Encabezado de columna del footer */
 .footer__heading {
   font-size: 1.07rem;
   margin-bottom: .85rem;
@@ -216,6 +242,7 @@
   letter-spacing: .4px;
 }
 
+/* Lista del footer */
 .footer__list {
   list-style: none;
   display: flex;
@@ -230,15 +257,18 @@
   font-size: .95rem;
 }
 
+/* Hover en enlaces del footer */
 .footer__list a:hover { 
   color: var(--color-primary); 
 }
 
+/* Tagline del footer */
 .footer__tagline {
   font-size: .83rem;
   color: #b9b9b9;
 }
 
+/* Redes sociales en el footer */
 .social--footer {
   display: flex;
   gap: 1rem;
@@ -248,13 +278,15 @@
 .social--footer img {
   width: 26px;
   height: 26px;
-  transition: var(--transition);
+  transition: opacity var(--transition), transform var(--transition);
 }
 
 .social--footer a:hover img {
-  filter: brightness(1.4);
+  opacity: .8;
+  transform: scale(1.1);
 }
 
+/* Copyright del footer */
 .copyright {
   border-top: 1px solid #181818;
   padding-top: 1rem;
@@ -264,7 +296,10 @@
   letter-spacing: .4px;
 }
 
-/* ========== RESPONSIVE GENERAL ========== */
+/* ========== RESPONSIVE OPTIMIZADO ========== */
+
+/* Tablet - iPad (hasta 880px) */
+/* Adaptación de layout para tablet */
 @media (max-width: 880px) {
   .header__inner {
     grid-template-columns: auto auto;
@@ -283,48 +318,83 @@
     gap: 1.2rem;
   }
   
+  /* HERO LAYOUT TABLET */
   .hero {
-    min-height: 92vh;
+    min-height: 85vh;
+  }
+  
+  .hero__img {
+    object-position: center 30%;
   }
   
   .hero__title { 
-    font-size: clamp(2rem, 7vw, 2.6rem); 
+    font-size: clamp(2rem, 7vw, 2.8rem);
   }
   
   .hero__actions { 
-    gap: 2rem; /* Mantener separación en tablet */
-  }
-  
-  .hero__actions .btn {
-    flex: 1 1 180px;
-    min-width: 46%;
+    gap: 2rem;
   }
 }
 
+/* Móvil grande (hasta 680px) */
+/* Adaptación para móviles grandes */
 @media (max-width: 680px) {
   .grid-productos--2 {
     grid-template-columns: 1fr;
   }
   
-  .hero__actions {
-    gap: 1.5rem;
-    flex-direction: column; /* COLUMNA EN MÓVILES */
-    align-items: center;
+  /* HERO LAYOUT MÓVIL */
+  .hero {
+    min-height: 80vh;
   }
   
-  .hero__actions .btn {
-    min-width: 200px;
-    max-width: 280px;
+  .hero__img {
+    object-position: center 25%;
+  }
+  
+  .hero__overlay {
+    padding: 3rem 0 2.5rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.45));
+  }
+  
+  .hero__slogan {
+    margin-bottom: 1.8rem;
+  }
+  
+  /* Botones en columna en móvil */
+  .hero__actions {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
   }
 }
 
+/* Móvil pequeño (hasta 480px) */
+/* Adaptación para móviles pequeños */
 @media (max-width: 480px) {
+  .hero {
+    min-height: 75vh;
+  }
+  
+  .hero__img {
+    object-position: center 20%;
+  }
+  
+  .hero__overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.5));
+  }
+  
   .hero__title { 
-    font-size: clamp(1.9rem, 8vw, 2.3rem); 
+    font-size: clamp(1.9rem, 8vw, 2.3rem);
+    margin-bottom: .8rem;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.9);
   }
   
   .hero__slogan { 
-    margin-bottom: 1.6rem; 
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
   }
   
   .nav__list { 
@@ -332,10 +402,51 @@
   }
   
   .hero__actions {
-    gap: 1.2rem;
+    gap: 1rem;
+    margin-top: 1.2rem;
   }
   
-  .hero__actions .btn {
-    min-width: 180px;
+  .hero__content {
+    padding: 0 .75rem;
+  }
+}
+
+/* Móviles muy pequeños (hasta 320px) */
+/* Adaptación para móviles muy pequeños */
+@media (max-width: 320px) {
+  .grid-productos {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .hero__img {
+    object-position: center 15%;
+  }
+  
+  .hero__overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.55));
+  }
+  
+  .hero__actions {
+    gap: .8rem;
+  }
+}
+
+/* ========== MEJORAS ADICIONALES ========== */
+
+/* Mejora de legibilidad en todos los dispositivos */
+@media (max-width: 768px) {
+  .hero__title,
+  .hero__slogan {
+    /* Refuerzo de sombras para compensar imagen más clara */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+  }
+}
+
+/* Optimización de performance */
+@media (max-width: 680px) {
+  .hero__media {
+    /* Preparado para imágenes optimizadas en móvil */
+    will-change: transform;
   }
 }

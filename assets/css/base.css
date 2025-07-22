@@ -8,23 +8,36 @@
 
 /* Variables CSS globales */
 :root {
+  /* Colores principales */
   --color-bg: #000; /* Fondo principal */
   --color-bg-alt: #111; /* Fondo alternativo */
   --color-panel: #181818; /* Fondo de paneles */
   --color-line: #262626; /* Color de líneas/divisiones */
   --color-text: #f5f5f5; /* Color de texto principal */
   --color-text-soft: #d6d6d6; /* Color de texto secundario */
-  --color-primary: #d4af37; /* Color primario (enlaces, acentos) */
-  --color-primary-hover: #b89427; /* Color primario al pasar el mouse */
-  --color-accent-insta: #e1306c; /* Color acento Instagram */
-  --color-accent-whatsapp: #25D366; /* Color acento WhatsApp */
+  --color-primary: #d4af37; /* Color primario */
+  --color-primary-hover: #b89427; /* Color primario hover */
+  --color-accent-insta: #e1306c; /* Color Instagram */
+  --color-accent-whatsapp: #25D366; /* Color WhatsApp */
+  /* Bordes y sombras */
   --radius-s: 4px; /* Radio pequeño */
   --radius-m: 6px; /* Radio mediano */
   --radius-l: 10px; /* Radio grande */
   --shadow-soft: 0 6px 18px -6px rgba(0,0,0,.6); /* Sombra suave */
-  --max-width: 1200px; /* Ancho máximo de contenedor */
+  /* Layout */
+  --max-width: 1200px; /* Ancho máximo */
   --transition: .3s ease; /* Transición estándar */
-  font-size: 16px; /* Tamaño de fuente base */
+  /* Espaciado */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  /* Z-index */
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  /* Fuente base */
+  font-size: 16px;
 }
 
 /* ========== ESTILOS GLOBALES ========== */
@@ -34,7 +47,19 @@ body {
   background: var(--color-bg); /* Fondo */
   color: var(--color-text); /* Color de texto */
   line-height: 1.45; /* Altura de línea */
-  -webkit-font-smoothing: antialiased; /* Suavizado de fuentes en Webkit */
+  -webkit-font-smoothing: antialiased; /* Suavizado de fuentes */
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactiva scroll suave si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Imágenes responsivas */
@@ -53,9 +78,9 @@ a:hover {
   color: var(--color-primary-hover); 
 }
 
-/* Contenedor principal centrado y con ancho máximo */
+/* Contenedor principal centrado */
 .container { 
-  width: min(100% - 2rem, var(--max-width)); 
+  width: min(100% - clamp(1rem, 4vw, 2rem), var(--max-width)); 
   margin-inline: auto; 
 }
 
@@ -71,4 +96,41 @@ a:hover {
 }
 .skip-link:focus { 
   top: 0; 
+}
+
+/* ========== MEJORAS DE ACCESIBILIDAD ========== */
+
+/* Focus visible en botones */
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Focus visible en enlaces de navegación */
+.nav__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Oculta visualmente pero accesible para lectores de pantalla */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Reduce animaciones para usuarios sensibles */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1s !important;
+  }
 }
