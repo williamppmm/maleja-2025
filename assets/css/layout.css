@@ -118,7 +118,7 @@
   font-size: clamp(2.2rem, 5vw, 3.3rem);
   font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   letter-spacing: .5px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
@@ -128,7 +128,7 @@
   font-size: clamp(1.15rem, 2.4vw, 1.6rem);
   font-style: italic;
   color: #f1e6cb;
-  margin-bottom: 2.2rem;
+  margin-bottom: 14rem;
   text-shadow: 0 2px 6px rgba(0,0,0,0.8);
 }
 

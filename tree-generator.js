@@ -37,52 +37,7 @@ function generatePHPProjectTree(dir, prefix = '', maxDepth = 4, currentDepth = 0
         const connector = isLastItem ? '└── ' : '├── ';
         const extension = isLastItem ? '    ' : '│   ';
         
-        // Iconos específicos para desarrollo web PHP/HTML
-        let icon = '';
-        if (stats.isDirectory()) {
-            switch (item.toLowerCase()) {
-                case 'css': 
-                case 'styles': icon = '🎨 '; break;
-                case 'js':
-                case 'javascript': icon = '⚡ '; break;
-                case 'img':
-                case 'images':
-                case 'imagenes': icon = '🖼️ '; break;
-                case 'assets': icon = '📦 '; break;
-                case 'includes':
-                case 'inc': icon = '🔧 '; break;
-                case 'admin': icon = '👤 '; break;
-                case 'config': icon = '⚙️ '; break;
-                case 'uploads': icon = '📤 '; break;
-                default: icon = '📁 '; break;
-            }
-        } else {
-            const ext = path.extname(item).toLowerCase();
-            switch (ext) {
-                case '.php': icon = '🐘 '; break;  // Elefante para PHP
-                case '.html':
-                case '.htm': icon = '🌐 '; break;
-                case '.css': icon = '🎨 '; break;
-                case '.js': icon = '⚡ '; break;
-                case '.json': icon = '⚙️ '; break;
-                case '.sql': icon = '🗄️ '; break;
-                case '.txt': icon = '📄 '; break;
-                case '.md': icon = '📝 '; break;
-                case '.png':
-                case '.jpg':
-                case '.jpeg': icon = '🖼️ '; break;
-                case '.svg': icon = '🎯 '; break;
-                case '.gif': icon = '🎬 '; break;
-                case '.ico': icon = '🔖 '; break;
-                case '.webp': icon = '🖼️ '; break;
-                default: 
-                    if (item === '.htaccess') icon = '🛡️ ';
-                    else icon = '📄 '; 
-                    break;
-            }
-        }
-        
-        result += `${prefix}${connector}${icon}${item}\n`;
+        result += `${prefix}${connector}${item}\n`;
         
         if (stats.isDirectory()) {
             result += generatePHPProjectTree(
@@ -101,25 +56,25 @@ function generatePHPProjectTree(dir, prefix = '', maxDepth = 4, currentDepth = 0
 const projectPath = process.argv[2] || '.';
 const projectName = path.basename(path.resolve(projectPath));
 
-console.log(`🐘 ${projectName}/ (Proyecto PHP/HTML)`);
+console.log(`${projectName}/ (Proyecto PHP/HTML)`);
 console.log(generatePHPProjectTree(projectPath));
 
 // Estadísticas del proyecto
 const stats = getProjectStats(projectPath);
-console.log('\n📊 Estadísticas del proyecto:');
-console.log(`   📄 Archivos PHP: ${stats.php}`);
-console.log(`   🌐 Archivos HTML: ${stats.html}`);
-console.log(`   🎨 Archivos CSS: ${stats.css}`);
-console.log(`   🖼️ Imágenes: ${stats.images}`);
-console.log(`   📁 Carpetas: ${stats.folders}`);
+console.log('\nEstadísticas del proyecto:');
+console.log(`    Archivos PHP: ${stats.php}`);
+console.log(`    Archivos HTML: ${stats.html}`);
+console.log(`    Archivos CSS: ${stats.css}`);
+console.log(`    Imágenes: ${stats.images}`);
+console.log(`    Carpetas: ${stats.folders}`);
 
 // Guardar archivo
 const timestamp = new Date().toISOString().split('T')[0];
 const filename = `estructura-proyecto-${timestamp}.txt`;
-const output = `🐘 ${projectName}/ (Proyecto PHP/HTML)\n${generatePHPProjectTree(projectPath)}\n\n📊 Estadísticas:\n   📄 PHP: ${stats.php} | 🌐 HTML: ${stats.html} | 🎨 CSS: ${stats.css} | 🖼️ Imágenes: ${stats.images}`;
+const output = `${projectName}/ (Proyecto PHP/HTML)\n${generatePHPProjectTree(projectPath)}\n\nEstadísticas:\n   PHP: ${stats.php} | HTML: ${stats.html} | CSS: ${stats.css} | Imágenes: ${stats.images}`;
 
 fs.writeFileSync(filename, output);
-console.log(`\n✅ Estructura guardada en: ${filename}`);
+console.log(`\nEstructura guardada en: ${filename}`);
 
 function getProjectStats(dir) {
     let stats = { php: 0, html: 0, css: 0, images: 0, folders: 0 };

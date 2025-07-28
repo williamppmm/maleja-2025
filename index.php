@@ -1,41 +1,49 @@
 <?php
 /**
- * Página de inicio (Home)
- * - Muestra hero
- * - Carga hasta 4 productos destacados
+ * Página de inicio - MALEJA Calzado
  */
 
 require_once __DIR__ . '/config/db.php';
 
-// Metadatos / contexto para el header
-$currentPage      = 'home';
-$pageTitle        = 'MALEJA Calzado | Sandalias y calzado femenino en Cali';
-$metaDescription  = 'Sandalias y calzado femenino con estilo y comodidad.';
+/**
+ * Configuración de la página
+ */
+$currentPage     = 'home';
+$pageTitle       = 'MALEJA Calzado | Calzado femenino en Cali';
+$metaDescription = 'Sandalias y calzado femenino con estilo y comodidad.';
+$canonicalUrl    = 'https://calzadomaleja.co/';
 
-// --- Consulta productos destacados ---
+/**
+ * Consulta de productos destacados con imágenes desde la base de datos
+ */
 $sqlDestacados = "
-  SELECT p.id,
-         p.nombre,
-         p.referencia,
-         p.slug,
-         p.precio,
-         p.descripcion_corta,
-         COALESCE(i.filename, 'assets/images/productos/_placeholder.png') AS imagen
-  FROM productos p
-  LEFT JOIN producto_imagenes i
-         ON i.producto_id = p.id AND i.principal = 1
-  WHERE p.destacado = 1
-    AND p.activo = 1
-  ORDER BY p.orden_destacado IS NULL, p.orden_destacado, p.id
-  LIMIT 4
+    SELECT p.id,
+           p.nombre,
+           p.referencia,
+           p.slug,
+           p.precio,
+           p.descripcion_corta,
+           p.descripcion_larga,
+           p.destacado,
+           COALESCE(CONCAT('assets/images/productos/', i.filename), 'assets/images/productos/_placeholder.png') AS imagen
+    FROM productos p
+    LEFT JOIN producto_imagenes i
+           ON i.producto_id = p.id AND i.principal = 1
+    WHERE p.destacado = 1 AND p.activo = 1
+    ORDER BY p.orden_destacado IS NULL, p.orden_destacado ASC, p.id DESC
+    LIMIT 4
 ";
+
+/**
+ * Ejecutar consulta de productos destacados
+ */
+$destacados = [];
 
 try {
     $stmt = $pdo->query($sqlDestacados);
     $destacados = $stmt->fetchAll();
 } catch (Throwable $e) {
-    // Podrías registrar el error en un log:
-    // error_log($e->getMessage());
+    error_log('Error al cargar productos destacados: ' . $e->getMessage());
     $destacados = [];
 }
 
@@ -54,11 +62,11 @@ include __DIR__ . '/includes/header.php';
   </picture>
   <div class="hero__overlay">
     <div class="hero__content container">
-      <h1 class="hero__title">Sandalias y calzado femenino.</h1>
+      <h1 class="hero__title">Calzado femenino.</h1>
       <p class="hero__slogan">¡Tu flow, tu ritmo, tu estilo... pa' vos!</p>
       <div class="hero__actions">
         <a href="productos.php" class="btn btn--primary">Ver Productos</a>
-        <a href="https://wa.me/573172703742"
+        <a href="https://wa.me/573135152530?text=Hola%20MALEJA%2C%20me%20gustaría%20saber%20más%20sobre%20sus%20productos."
            class="btn btn--whatsapp"
            target="_blank" rel="noopener">Pedir por WhatsApp</a>
       </div>
@@ -72,54 +80,61 @@ include __DIR__ . '/includes/header.php';
     <h2 id="productos-destacados-title" class="section__title">¡Lo más chévere! 😎</h2>
     <p class="section__subtitle">Las sandalias que están causando furor</p>
 
-    <div class="grid-productos grid-productos--2">
-      <?php if ($destacados): ?>
+    <?php if (empty($destacados)): ?>
+      <div class="mensaje-vacio">
+        <h3>Próximamente</h3>
+        <p>Estamos preparando nuestros productos destacados para ti.</p>
+        <a href="productos.php" class="btn btn--secondary">Ver todos los productos</a>
+      </div>
+    <?php else: ?>
+      <div class="grid-productos grid-productos--2">
         <?php foreach ($destacados as $p): ?>
-          <?php
-            // Sanitización previa a impresión
-            $pid    = (int)$p['id'];
-            $nombre = htmlspecialchars($p['nombre']);
-            $ref    = htmlspecialchars($p['referencia'] ?? '');
-            $precio = (float)$p['precio'];
-            $desc   = htmlspecialchars($p['descripcion_corta'] ?? '');
-            $img    = htmlspecialchars($p['imagen']);
-            $alt    = $desc ?: $nombre;
-          ?>
-          <article class="producto-card"
-                   data-id="<?= $pid ?>"
-                   data-nombre="<?= $nombre ?>"
-                   data-referencia="<?= $ref ?>"
-                   data-precio="<?= (int)$precio ?>"
-                   data-descripcion="<?= $desc ?>"
-                   data-img="<?= $img ?>">
+          <article
+            class="producto-card producto-card--destacado"
+            data-id="<?= htmlspecialchars($p['id']) ?>"
+            data-nombre="<?= htmlspecialchars($p['nombre']) ?>"
+            data-referencia="<?= htmlspecialchars($p['referencia']) ?>"
+            data-precio="<?= (int)$p['precio'] ?>"
+            data-descripcion="<?= htmlspecialchars($p['descripcion_corta'] ?? '') ?>"
+            data-descripcion-larga="<?= htmlspecialchars($p['descripcion_larga'] ?? '') ?>"
+            data-img="<?= htmlspecialchars($p['imagen']) ?>">
+
+            <div class="producto-badge">Destacado</div>
+
             <picture class="producto-card__media">
               <img
-                src="<?= $img ?>"
-                alt="<?= $alt ?>"
+                src="<?= htmlspecialchars($p['imagen']) ?>"
+                alt="<?= htmlspecialchars($p['descripcion_corta'] ?: $p['nombre']) ?>"
                 class="producto-card__img"
                 loading="lazy"
-                width="400" height="500">
+                width="400"
+                height="350">
             </picture>
+
             <div class="producto-card__body">
-              <h3 class="producto-card__title"><?= $nombre ?></h3>
-              <p class="producto-card__precio">$<?= number_format($precio, 0, ',', '.') ?></p>
-              <button class="btn btn--outline btn-info"
-                      type="button"
-                      data-accion="info"
-                      aria-label="Más información <?= $nombre ?>">
-                Más información
+              <h3 class="producto-card__title"><?= htmlspecialchars($p['nombre']) ?></h3>
+              <?php if (!empty($p['referencia'])): ?>
+                <p class="producto-card__ref">Ref: <?= htmlspecialchars($p['referencia']) ?></p>
+              <?php endif; ?>
+              <p class="producto-card__precio">
+                $<?= number_format($p['precio'], 0, ',', '.') ?>
+              </p>
+              <button
+                class="btn btn--outline btn-info"
+                type="button"
+                data-accion="info"
+                aria-label="Más información <?= htmlspecialchars($p['nombre']) ?>">
+                Ver detalle
               </button>
             </div>
           </article>
         <?php endforeach; ?>
-      <?php else: ?>
-        <p class="mensaje--vacio">No hay productos destacados todavía.</p>
-      <?php endif; ?>
-    </div>
+      </div>
 
-    <div class="section__cta">
-      <a href="productos.php" class="btn btn--secondary">Ver catálogo completo</a>
-    </div>
+      <div class="section__cta">
+        <a href="productos.php" class="btn btn--secondary">Ver catálogo completo</a>
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 
@@ -134,5 +149,4 @@ include __DIR__ . '/includes/header.php';
   </div>
 </section>
 
-<?php
-include __DIR__ . '/includes/footer.php';
+<?php include __DIR__ . '/includes/footer.php'; ?>

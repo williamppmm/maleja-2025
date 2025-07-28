@@ -47,11 +47,11 @@ include __DIR__ . '/includes/header.php';
           resolvemos dudas al instante y coordinamos tu pedido.
         </p>
         <div class="metodo-card__info">
-          <p class="metodo-card__dato">+57 317 270 3742</p>
+          <p class="metodo-card__dato">+57 313 515 2530</p>
           <p class="metodo-card__horario">8:00 AM - 6:00 PM</p>
           <p class="metodo-card__nota">*Respondo rápido, incluso fuera de horario</p>
         </div>
-        <a href="https://wa.me/573172703742?text=Hola%20Maleja%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos" 
+        <a href="https://wa.me/573135152530?text=Hola%20Maleja%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos" 
            class="btn btn--whatsapp btn--large" target="_blank" rel="noopener">
           Chatear por WhatsApp
         </a>
@@ -95,11 +95,10 @@ include __DIR__ . '/includes/header.php';
             <img src="assets/icons/instagram.png" alt="" width="24" height="24">
             @malejacalzado
           </a>
-          <a href="https://www.facebook.com/malejacalzado/" 
+          <a href="https://www.facebook.com/share/178Cq8h6pT/" 
              target="_blank" rel="noopener" class="social-link social-link--proximamente">
             <img src="assets/icons/facebook.png" alt="" width="24" height="24">
             @malejacalzado
-            <span class="proximamente-badge">Próximamente</span>
           </a>
         </div>
       </div>
@@ -220,7 +219,7 @@ include __DIR__ . '/includes/header.php';
         que va a enamorarte y que hará que te sientas espectacular.
       </p>
       <div class="cta-final__buttons">
-        <a href="https://wa.me/573172703742?text=Hola%20Maleja%2C%20quiero%20que%20me%20asesores%20para%20encontrar%20mi%20calzado%20perfecto" 
+        <a href="https://wa.me/573135152530?text=Hola%20Maleja%2C%20quiero%20que%20me%20asesores%20para%20encontrar%20mi%20calzado%20perfecto" 
            class="btn btn--primary btn--large" target="_blank" rel="noopener">
           ¡Hablemos por WhatsApp!
         </a>

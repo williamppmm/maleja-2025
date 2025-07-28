@@ -62,6 +62,8 @@ $extraHead        = $extraHead        ?? '';
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/components/dev-credit.css">
+  <link rel="stylesheet" href="assets/css/components/modal.css">
 
   <!-- CSS condicional por página -->
   <?php if ($currentPage === 'home'): ?>
@@ -139,7 +141,7 @@ $extraHead        = $extraHead        ?? '';
            aria-label="Instagram MALEJA Calzado">
           <img src="assets/icons/instagram.png" alt="" width="24" height="24" loading="lazy">
         </a>
-        <a href="https://wa.me/573172703742"
+        <a href="https://wa.me/573135152530"
            target="_blank"
            rel="noopener"
            aria-label="WhatsApp MALEJA Calzado">

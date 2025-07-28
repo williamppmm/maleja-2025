@@ -1,0 +1,142 @@
+/* =====================================================================
+ *  DEV CREDIT TOOLTIP - Estilos del crédito del desarrollador
+ * ===================================================================*/
+
+/* Estilos base del tooltip */
+#dev-info {
+  /* Estado inicial - oculto */
+  display: none;
+  
+  /* Posicionamiento */
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  
+  /* Apariencia */
+  background: #2c3e50;
+  color: #fff;
+  padding: 15px 20px;
+  border: 1px solid #34495e;
+  border-radius: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  
+  /* Sombra y efectos */
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
+  z-index: 9999;
+  
+  /* Transiciones */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Estado visible - aplicado via JavaScript */
+#dev-info.show {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Contenido del tooltip */
+#dev-info p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Enlace de WhatsApp dentro del tooltip */
+#dev-info a {
+  color: #25D366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#dev-info a:hover {
+  text-decoration: underline;
+}
+
+/* Flecha del tooltip */
+.tooltip-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #2c3e50;
+}
+
+/* Estilos del trigger */
+.dev-credit {
+  cursor: pointer;
+  border-bottom: 1px dotted rgba(255,255,255,.5);
+  position: relative;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.dev-credit:hover {
+  border-bottom-color: rgba(255,255,255,.8);
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablet y móvil */
+@media (max-width: 768px) {
+  #dev-info {
+    /* Cambiar a posición fija en móvil */
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    
+    /* Resetear transformaciones */
+    transform: none;
+    margin-bottom: 0;
+    
+    /* Permitir texto en múltiples líneas */
+    white-space: normal;
+    text-align: center;
+    
+    /* Ajustar padding para móvil */
+    padding: 20px;
+  }
+  
+  /* Ocultar flecha en móvil */
+  .tooltip-arrow {
+    display: none;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  #dev-info {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    font-size: 13px;
+    padding: 15px;
+  }
+}
+
+/* ========== COMPATIBILIDAD ========== */
+
+/* Asegurar que funcione con diferentes estructuras de DOM */
+.copyright {
+  position: relative;
+}
+
+/* Prevenir conflictos con otros tooltips */
+#dev-info {
+  font-family: inherit;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  #dev-info {
+    text-align: center;
+  }
+}

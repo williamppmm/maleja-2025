@@ -27,7 +27,7 @@ $whereClause = 'p.activo = 1';
 $params      = [];
 
 if ($busqueda !== '') {
-    $whereClause .= ' AND (p.nombre LIKE ? OR p.referencia LIKE ? OR p.descripcion_corta LIKE ?)';
+    $whereClause .= ' AND (p.nombre LIKE ? OR p.referencia LIKE ? OR p.descripcion_larga LIKE ?)';
     $like = '%' . $busqueda . '%';
     $params[] = $like;
     $params[] = $like;
@@ -63,8 +63,9 @@ $sqlProductos = "
            p.slug,
            p.precio,
            p.descripcion_corta,
+           p.descripcion_larga,
            p.destacado,
-           COALESCE(i.filename, 'assets/images/productos/_placeholder.png') AS imagen
+           COALESCE(CONCAT('assets/images/productos/', i.filename), 'assets/images/productos/_placeholder.png') AS imagen
     FROM productos p
     LEFT JOIN producto_imagenes i
            ON i.producto_id = p.id AND i.principal = 1
@@ -211,6 +212,7 @@ include __DIR__ . '/includes/header.php';
             data-referencia="<?= htmlspecialchars($p['referencia']) ?>"
             data-precio="<?= (int)$p['precio'] ?>"
             data-descripcion="<?= htmlspecialchars($p['descripcion_corta'] ?? '') ?>"
+            data-descripcion-larga="<?= htmlspecialchars($p['descripcion_larga'] ?? '') ?>"
             data-img="<?= htmlspecialchars($p['imagen']) ?>">
 
             <?php if ($p['destacado']): ?>
@@ -224,7 +226,7 @@ include __DIR__ . '/includes/header.php';
                 class="producto-card__img"
                 loading="lazy"
                 width="400"
-                height="500">
+                height="350">
             </picture>
 
             <div class="producto-card__body">

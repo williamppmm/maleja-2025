@@ -1,0 +1,487 @@
+/* assets/css/pages/login.css */
+
+/* ========== RESET Y VARIABLES BASE ========== */
+/* Importamos las mismas variables del sitio principal */
+:root {
+  /* Colores principales (coherentes con el sitio) */
+  --color-bg: #000;
+  --color-bg-alt: #111;
+  --color-panel: #181818;
+  --color-line: #262626;
+  --color-text: #f5f5f5;
+  --color-text-soft: #d6d6d6;
+  --color-primary: #d4af37;
+  --color-primary-hover: #b89427;
+  --color-accent-whatsapp: #25D366;
+  
+  /* Colores específicos para admin */
+  --color-error: #ff4757;
+  --color-success: #2ed573;
+  --color-warning: #ffa502;
+  
+  /* Bordes y sombras */
+  --radius-s: 4px;
+  --radius-m: 6px;
+  --radius-l: 10px;
+  --shadow-soft: 0 6px 18px -6px rgba(0,0,0,.6);
+  --shadow-form: 0 8px 32px -8px rgba(0,0,0,.7);
+  
+  /* Layout */
+  --max-width: 1200px;
+  --transition: .3s ease;
+  
+  /* Z-index */
+  --z-modal: 1050;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== ESTILOS GLOBALES LOGIN ========== */
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Fondo con patrón sutil */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+  z-index: -1;
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.login-container {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-form);
+  padding: 2.5rem 2rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Efecto de brillo sutil en el contenedor */
+.login-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  opacity: 0.4;
+}
+
+/* ========== HEADER DEL LOGIN ========== */
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h1 {
+  font-family: Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.3px;
+}
+
+.login-header p {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* ========== MENSAJES DE ERROR ========== */
+.error-message {
+  background: rgba(255, 71, 87, 0.1);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  border-radius: var(--radius-m);
+  color: #ff6b7a;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* ========== FORMULARIO ========== */
+form {
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  letter-spacing: 0.2px;
+}
+
+/* ========== INPUTS ========== */
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-m);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  background: rgba(212, 175, 55, 0.02);
+}
+
+.form-group input:focus + .password-toggle {
+  border-color: var(--color-primary);
+}
+
+/* Placeholder mejorado */
+.form-group input::placeholder {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ========== WRAPPER CONTRASEÑA ========== */
+.password-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.password-wrapper input {
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.password-toggle {
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-left: none;
+  border-top-right-radius: var(--radius-m);
+  border-bottom-right-radius: var(--radius-m);
+  padding: 0 0.75rem;
+  cursor: pointer;
+  color: var(--color-text-soft);
+  font-size: 1rem;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+}
+
+.password-toggle:hover {
+  background: var(--color-line);
+  color: var(--color-text);
+}
+
+.password-toggle:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* ========== BOTÓN SUBMIT ========== */
+.submit-btn {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  background: var(--color-primary);
+  color: #111;
+  border: none;
+  border-radius: var(--radius-m);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+.submit-btn:hover {
+  background: var(--color-primary-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+
+/* Estados del botón */
+.submit-btn.loading {
+  pointer-events: none;
+  background: var(--color-line);
+  color: var(--color-text-soft);
+}
+
+.submit-btn .btn-text {
+  transition: var(--transition);
+}
+
+.submit-btn.loading .btn-text {
+  opacity: 0;
+}
+
+/* ========== SPINNER DE CARGA ========== */
+.loading {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  opacity: 0;
+  position: absolute;
+  transition: var(--transition);
+}
+
+.submit-btn.loading .loading {
+  opacity: 1;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========== ENLACE VOLVER ========== */
+.back-home {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.back-home a {
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.back-home a:hover {
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.back-home strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ========== FOOTER MARCA ========== */
+.brand-footer {
+  text-align: center;
+  color: #666;
+  font-size: 0.8rem;
+  font-style: italic;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(38, 38, 38, 0.5);
+}
+
+/* ========== ACCESIBILIDAD ========== */
+/* Focus visible mejorado */
+.submit-btn:focus-visible,
+.password-toggle:focus-visible,
+.form-group input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reducir animaciones para usuarios sensibles */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1s !important;
+  }
+  
+  .submit-btn:hover {
+    transform: none;
+  }
+  
+  .back-home a:hover {
+    transform: none;
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+/* Tablet pequeña */
+@media (max-width: 580px) {
+  body {
+    padding: 0.5rem;
+  }
+  
+  .login-container {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+  
+  .login-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .login-header p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Móvil */
+@media (max-width: 420px) {
+  .login-container {
+    padding: 1.5rem 1rem;
+    border-radius: var(--radius-m);
+  }
+  
+  .login-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group input {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+  }
+  
+  .submit-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .password-toggle {
+    padding: 0 0.6rem;
+    min-width: 40px;
+  }
+}
+
+/* Móvil muy pequeño */
+@media (max-width: 320px) {
+  .login-container {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .login-header h1 {
+    font-size: 1.3rem;
+  }
+  
+  .login-header p {
+    font-size: 0.85rem;
+  }
+  
+  .form-group input {
+    padding: 0.65rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .submit-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .error-message {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ========== MEJORAS ESPECÍFICAS ========== */
+/* Mejora visual del autofill */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-bg) inset;
+  -webkit-text-fill-color: var(--color-text);
+  border-color: var(--color-primary);
+}
+
+/* Estados de validación HTML5 */
+.form-group input:invalid {
+  border-color: var(--color-line);
+}
+
+.form-group input:valid {
+  border-color: rgba(46, 213, 115, 0.3);
+}
+
+/* Mensaje de éxito (para futuras implementaciones) */
+.success-message {
+  background: rgba(46, 213, 115, 0.1);
+  border: 1px solid rgba(46, 213, 115, 0.3);
+  border-radius: var(--radius-m);
+  color: #3ed66b;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ========== OPTIMIZACIONES PERFORMANCE ========== */
+/* Preparación para animaciones GPU */
+.submit-btn,
+.back-home a,
+.login-container {
+  will-change: transform;
+}
+
+/* Hint del navegador para el formulario */
+form {
+  contain: layout style;
+}
