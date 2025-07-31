@@ -33,20 +33,46 @@ $adminLogin  = $base . '/admin/login.php';
       <div class="footer__col footer__contacto">
         <h3 class="footer__heading">Contacto</h3>
         <ul class="footer__list">
-          <li><a href="mailto:ventas@malejacalzado.co">ventas@malejacalzado.co</a></li>
-          <li><a href="https://wa.me/573135152530" target="_blank" rel="noopener">+57 313 515 2530</a></li>
+          <li>
+            <a href="mailto:ventas@malejacalzado.co"
+              aria-label="Enviar correo a ventas@malejacalzado.co">
+              ventas@malejacalzado.co
+            </a>
+          </li>
+
+          <li>
+            <a href="https://wa.me/573135152530?text=Hola%20MALEJA%20Calzado%2C%20vengo%20de%20la%20web%20y%20quisiera%20informaci%C3%B3n%20sobre%20un%20producto.%20Gracias."
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contactar por WhatsApp a MALEJA Calzado">
+              +57 313 515 2530
+            </a>
+          </li>
         </ul>
       </div>
 
       <!-- Redes -->
-      <div class="footer__col footer__social">
+      <div class="footer__col footer__social" role="navigation" aria-label="Redes sociales">
         <h3 class="footer__heading">Síguenos</h3>
         <div class="social social--footer">
-          <a href="https://www.instagram.com/malejacalzado/" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="assets/icons/instagram.png" width="26" height="26" loading="lazy" alt="">
+          <a href="https://www.instagram.com/malejacalzado/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de MALEJA Calzado">
+            <img src="assets/icons/instagram.png"
+                width="24" height="24"
+                loading="lazy" decoding="async"
+                alt="">
           </a>
-          <a href="https://www.facebook.com/share/178Cq8h6pT/" target="_blank" rel="noopener" aria-label="Facebook">
-            <img src="assets/icons/facebook.png" width="26" height="26" loading="lazy" alt="">
+
+          <a href="https://www.facebook.com/profile.php?id=61578936597273"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook de MALEJA Calzado">
+            <img src="assets/icons/facebook.png"
+                width="24" height="24"
+                loading="lazy" decoding="async"
+                alt="">
           </a>
         </div>
       </div>

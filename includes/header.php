@@ -134,18 +134,30 @@ $extraHead        = $extraHead        ?? '';
       </nav>
 
       <!-- Redes sociales -->
-      <div class="social social--header" aria-label="Redes sociales">
+      <div class="social social--header" role="navigation" aria-label="Redes sociales">
         <a href="https://www.instagram.com/malejacalzado/"
-           target="_blank"
-           rel="noopener"
-           aria-label="Instagram MALEJA Calzado">
-          <img src="assets/icons/instagram.png" alt="" width="24" height="24" loading="lazy">
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram de MALEJA Calzado">
+          <img src="assets/icons/instagram.png"
+              width="24" height="24"
+              decoding="async"
+              alt="">
         </a>
-        <a href="https://wa.me/573135152530"
-           target="_blank"
-           rel="noopener"
-           aria-label="WhatsApp MALEJA Calzado">
-          <img src="assets/icons/whatsapp.png" alt="" width="24" height="24" loading="lazy">
+        <a href="https://www.facebook.com/profile.php?id=61578936597273"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook de MALEJA Calzado">
+          <img src="assets/icons/facebook.png"
+              width="24" height="24"
+              decoding="async"
+              alt="">
+        </a>
+        <a href="https://wa.me/573135152530?text=Hola%20MALEJA%20Calzado,%20vengo%20de%20la%20web%20y%20quisiera%20informaci%C3%B3n%20sobre..."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp de MALEJA Calzado">
+          <img src="assets/icons/whatsapp.png" width="24" height="24" decoding="async" alt="">
         </a>
       </div>
     </div>
