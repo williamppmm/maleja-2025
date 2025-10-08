@@ -166,23 +166,23 @@ class Lightbox {
   updateNavigation() {
     // Mostrar/ocultar botones de navegación
     if (this.images.length <= 1) {
-      this.prevBtn?.classList.add('is-hidden');
-      this.nextBtn?.classList.add('is-hidden');
+      if (this.prevBtn) this.prevBtn.classList.add('is-hidden');
+      if (this.nextBtn) this.nextBtn.classList.add('is-hidden');
     } else {
-      this.prevBtn?.classList.remove('is-hidden');
-      this.nextBtn?.classList.remove('is-hidden');
+      if (this.prevBtn) this.prevBtn.classList.remove('is-hidden');
+      if (this.nextBtn) this.nextBtn.classList.remove('is-hidden');
 
       // Deshabilitar si estamos en los extremos (opcional)
       if (this.currentIndex === 0) {
-        this.prevBtn?.style.opacity = '0.5';
+        if (this.prevBtn) this.prevBtn.style.opacity = '0.5';
       } else {
-        this.prevBtn?.style.opacity = '1';
+        if (this.prevBtn) this.prevBtn.style.opacity = '1';
       }
 
       if (this.currentIndex === this.images.length - 1) {
-        this.nextBtn?.style.opacity = '0.5';
+        if (this.nextBtn) this.nextBtn.style.opacity = '0.5';
       } else {
-        this.nextBtn?.style.opacity = '1';
+        if (this.nextBtn) this.nextBtn.style.opacity = '1';
       }
     }
   }
@@ -241,6 +241,12 @@ window.openLightbox = (imageSrc, imageAlt = '', allImages = []) => {
 document.addEventListener('DOMContentLoaded', () => {
   // Click en imagen individual
   document.querySelectorAll('[data-lightbox]').forEach(img => {
+    // Solo procesar imágenes que NO sean de producto-card
+    // (esas las maneja product-image-zoom.js)
+    if (img.classList.contains('producto-card__img')) {
+      return;
+    }
+
     img.style.cursor = 'zoom-in';
 
     img.addEventListener('click', (e) => {

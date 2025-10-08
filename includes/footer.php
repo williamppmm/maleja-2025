@@ -130,7 +130,8 @@ $adminLogin  = $base . '/admin/login.php';
 
   <!-- SCRIPTS ------------------------------------------------------->
   <!-- Lightbox (cargar primero para que esté disponible globalmente) -->
-  <script src="<?= $base ?>/assets/js/components/lightbox.js?v=1" defer></script>
+  <script src="<?= $base ?>/assets/js/components/lightbox.js?v=3" defer></script>
+  <script src="<?= $base ?>/assets/js/components/product-image-zoom.js?v=3" defer></script>
 
   <?php if ($includeProductModal): ?>
     <!-- Modal de producto (sin funcionalidad de zoom) -->
