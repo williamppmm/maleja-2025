@@ -34,18 +34,18 @@ $adminLogin  = $base . '/admin/login.php';
         <h3 class="footer__heading">Contacto</h3>
         <ul class="footer__list">
           <li>
-            <a href="mailto:ventas@malejacalzado.co"
-              aria-label="Enviar correo a ventas@malejacalzado.co">
-              ventas@malejacalzado.co
+            <a href="mailto:ventas@malejacalzado.com"
+              aria-label="Enviar correo a ventas@malejacalzado.com">
+              ventas@malejacalzado.com
             </a>
           </li>
 
           <li>
-            <a href="https://wa.me/573135152530?text=Hola%20MALEJA%20Calzado%2C%20vengo%20de%20la%20web%20y%20quisiera%20informaci%C3%B3n%20sobre%20un%20producto.%20Gracias."
+            <a href="https://wa.me/573172703742?text=Hola%20MALEJA%20Calzado%2C%20vengo%20de%20la%20web%20y%20quisiera%20informaci%C3%B3n%20sobre%20un%20producto.%20Gracias."
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Contactar por WhatsApp a MALEJA Calzado">
-              +57 313 515 2530
+              +57 317 270 3742
             </a>
           </li>
         </ul>
@@ -129,9 +129,12 @@ $adminLogin  = $base . '/admin/login.php';
   <?php endif; ?>
 
   <!-- SCRIPTS ------------------------------------------------------->
+  <!-- Lightbox (cargar primero para que esté disponible globalmente) -->
+  <script src="<?= $base ?>/assets/js/components/lightbox.js?v=1" defer></script>
+
   <?php if ($includeProductModal): ?>
-    <!-- Modal de producto -->
-    <script src="<?= $base ?>/assets/js/components/modal-producto.js?v=1" defer></script>
+    <!-- Modal de producto (sin funcionalidad de zoom) -->
+    <script src="<?= $base ?>/assets/js/components/modal-producto.js?v=3" defer></script>
   <?php endif; ?>
 
   <!-- JS global (ahora incluye dev-credit integrado) -->

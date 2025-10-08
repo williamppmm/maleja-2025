@@ -43,11 +43,11 @@
 
     /* Enlaces dinámicos */
     const msg = encodeURIComponent(`Hola Maleja, me interesa el producto: ${nombre}${ref ? ' (ref ' + ref + ')' : ''}`);
-    btnWhats.href = `https://wa.me/573135152530?text=${msg}`;
+    btnWhats.href = `https://wa.me/573172703742?text=${msg}`;
 
     const subject = encodeURIComponent(`Consulta: ${nombre}${ref ? ' - Ref ' + ref : ''}`);
     const body    = encodeURIComponent('Hola, me interesa este modelo. ¿Disponibilidad de tallas?');
-    btnMail.href  = `mailto:ventas@malejacalzado.co?subject=${subject}&body=${body}`;
+    btnMail.href  = `mailto:ventas@malejacalzado.com?subject=${subject}&body=${body}`;
 
     /* Mostrar modal */
     modal.classList.add('is-open');
@@ -80,6 +80,7 @@
       if (card) open(card);
       return;
     }
+
     /* clic backdrop o botones con data-modal-cerrar */
     if (
       e.target.hasAttribute('data-modal-cerrar') ||

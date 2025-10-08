@@ -7,7 +7,7 @@ require_once __DIR__ . '/config/db.php';
 $currentPage      = 'nosotras';
 $pageTitle        = 'Nosotras | MALEJA Calzado - María Alejandra Pérez';
 $metaDescription  = 'Conoce la historia de María Alejandra Pérez, emprendedora con más de 10 años de experiencia en calzado femenino, ahora conquistando Cali con estilo y calidad.';
-$canonicalUrl     = 'https://calzadomaleja.co/nosotras.php';
+$canonicalUrl     = 'https://malejacalzado.com/nosotras.php';
 
 include __DIR__ . '/includes/header.php';
 ?>
@@ -155,7 +155,7 @@ include __DIR__ . '/includes/header.php';
         </p>
         <div class="futuro__buttons">
           <a href="productos.php" class="btn btn--primary">Ver catálogo</a>
-          <a href="https://wa.me/573135152530?text=Hola%20Maleja%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos" 
+          <a href="https://wa.me/573172703742?text=Hola%20Maleja%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos" 
              class="btn btn--whatsapp" target="_blank" rel="noopener">
             Conversemos por WhatsApp
           </a>

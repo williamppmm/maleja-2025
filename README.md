@@ -305,8 +305,8 @@ mysql -u root -p malejacalzado < database/seed.sql
 ## Contacto
 
 ### MALEJA Calzado
-- **Email:** ventas@malejacalzado.co
-- **WhatsApp:** +57 313 515 2530
+- **Email:** ventas@malejacalzado.com
+- **WhatsApp:** +57 317 270 3742
 - **Ubicación:** Cali, Colombia
 - **Instagram:** @malejacalzado
 

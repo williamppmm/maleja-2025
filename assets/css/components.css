@@ -68,18 +68,18 @@
   }
 }
 
-/* Botón primario - EFECTO MEJORADO */
+/* Botón primario - EFECTO MEJORADO con gradiente sutil */
 .btn--primary {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, #d4af37 0%, #c9a832 100%);
   color: #111;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3), 0 1px 3px rgba(212, 175, 55, 0.15);
 }
 
 .btn--primary:hover {
-  background: #b89427;
+  background: linear-gradient(135deg, #b89427 0%, #a88520 100%);
   color: #ffffff;
   transform: translate3d(0, -2px, 0); /* Hardware acceleration */
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.5), 0 2px 6px rgba(212, 175, 55, 0.25);
 }
 
 /* Botón secundario */
@@ -95,18 +95,18 @@
   transform: translate3d(0, -2px, 0);
 }
 
-/* Botón WhatsApp - HOVER MEJORADO */
+/* Botón WhatsApp - HOVER MEJORADO con gradiente */
 .btn--whatsapp {
-  background: var(--color-accent-whatsapp);
+  background: linear-gradient(135deg, #25D366 0%, #22c95e 100%);
   color: #111;
-  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3), 0 1px 3px rgba(37, 211, 102, 0.15);
 }
 
 .btn--whatsapp:hover {
-  background: #20b558;
+  background: linear-gradient(135deg, #20b558 0%, #1ea550 100%);
   color: #ffffff;
   transform: translate3d(0, -2px, 0);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5), 0 2px 6px rgba(37, 211, 102, 0.25);
 }
 
 /* Botón con borde (outline) */
@@ -150,7 +150,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: var(--transition);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   isolation: isolate;
   will-change: transform;
@@ -162,14 +162,14 @@
   inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
   opacity: 0;
-  transition: var(--transition);
+  transition: opacity 0.35s ease;
   z-index: 1;
 }
 
 .producto-card:hover {
-  transform: translate3d(0, -5px, 0); /* Hardware acceleration */
-  box-shadow: var(--shadow-soft);
-  border-color: #303030;
+  transform: translate3d(0, -6px, 0); /* Hardware acceleration */
+  box-shadow: 0 8px 24px -8px rgba(0,0,0,.7), 0 0 0 1px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.3);
 }
 
 .producto-card:hover::after {
@@ -180,8 +180,34 @@
   border-color: var(--color-primary);
 }
 
-.producto-card__media { 
-  position: relative; 
+.producto-card__media {
+  position: relative;
+}
+
+/* Indicador de zoom en hover */
+.producto-card__media::after {
+  content: "🔍";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.producto-card:hover .producto-card__media::after {
+  opacity: 1;
 }
 
 .producto-card__img {
@@ -189,6 +215,11 @@
   aspect-ratio: 4/5;
   object-fit: cover;
   display: block;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.producto-card:hover .producto-card__img {
+  transform: scale(1.05);
 }
 
 .producto-card__body {

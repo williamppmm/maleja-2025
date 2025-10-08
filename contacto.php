@@ -7,7 +7,7 @@ require_once __DIR__ . '/config/db.php';
 $currentPage      = 'contacto';
 $pageTitle        = 'Contacto | MALEJA Calzado - WhatsApp y Asesoría Personal';
 $metaDescription  = 'Contáctanos por WhatsApp para asesoría personalizada en calzado femenino. María Alejandra te ayuda a encontrar tu par perfecto.';
-$canonicalUrl     = 'https://calzadomaleja.co/contacto.php';
+$canonicalUrl     = 'https://malejacalzado.com/contacto.php';
 
 include __DIR__ . '/includes/header.php';
 ?>
@@ -47,11 +47,11 @@ include __DIR__ . '/includes/header.php';
           resolvemos dudas al instante y coordinamos tu pedido.
         </p>
         <div class="metodo-card__info">
-          <p class="metodo-card__dato">+57 313 515 2530</p>
+          <p class="metodo-card__dato">+57 317 270 3742</p>
           <p class="metodo-card__horario">8:00 AM - 6:00 PM</p>
           <p class="metodo-card__nota">*Respondo rápido, incluso fuera de horario</p>
         </div>
-        <a href="https://wa.me/573135152530?text=Hola%20Maleja%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos" 
+        <a href="https://wa.me/573172703742?text=Hola%20Maleja%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos" 
            class="btn btn--whatsapp btn--large" target="_blank" rel="noopener">
           Chatear por WhatsApp
         </a>
@@ -69,10 +69,10 @@ include __DIR__ . '/includes/header.php';
           sobre múltiples productos o cualquier duda especial.
         </p>
         <div class="metodo-card__info">
-          <p class="metodo-card__dato">ventas@malejacalzado.co</p>
+          <p class="metodo-card__dato">ventas@malejacalzado.com</p>
           <p class="metodo-card__horario">Respuesta en 24 horas</p>
         </div>
-        <a href="mailto:ventas@malejacalzado.co?subject=Consulta%20sobre%20productos&body=Hola%20Maleja%2C%0A%0AMe%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.%0A%0AGracias" 
+        <a href="mailto:ventas@malejacalzado.com?subject=Consulta%20sobre%20productos&body=Hola%20Maleja%2C%0A%0AMe%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.%0A%0AGracias" 
            class="btn btn--secondary">
           Enviar correo
         </a>
@@ -219,7 +219,7 @@ include __DIR__ . '/includes/header.php';
         que va a enamorarte y que hará que te sientas espectacular.
       </p>
       <div class="cta-final__buttons">
-        <a href="https://wa.me/573135152530?text=Hola%20Maleja%2C%20quiero%20que%20me%20asesores%20para%20encontrar%20mi%20calzado%20perfecto" 
+        <a href="https://wa.me/573172703742?text=Hola%20Maleja%2C%20quiero%20que%20me%20asesores%20para%20encontrar%20mi%20calzado%20perfecto" 
            class="btn btn--primary btn--large" target="_blank" rel="noopener">
           ¡Hablemos por WhatsApp!
         </a>

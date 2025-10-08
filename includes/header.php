@@ -51,8 +51,8 @@ $extraHead        = $extraHead        ?? '';
   <meta property="og:type" content="website">
   <meta property="og:title" content="<?= htmlspecialchars($pageTitle) ?>">
   <meta property="og:description" content="<?= htmlspecialchars($metaDescription) ?>">
-  <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl ?? 'https://calzadomaleja.co/') ?>">
-  <meta property="og:image" content="https://calzadomaleja.co/assets/banners/banner.png">
+  <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl ?? 'https://malejacalzado.com/') ?>">
+  <meta property="og:image" content="https://malejacalzado.com/assets/banners/banner.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Favicon -->
@@ -64,6 +64,7 @@ $extraHead        = $extraHead        ?? '';
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/components/dev-credit.css">
   <link rel="stylesheet" href="assets/css/components/modal-producto.css">
+  <link rel="stylesheet" href="assets/css/components/lightbox.css">
 
   <!-- CSS condicional por página -->
   <?php if ($currentPage === 'home'): ?>
@@ -153,7 +154,7 @@ $extraHead        = $extraHead        ?? '';
               decoding="async"
               alt="">
         </a>
-        <a href="https://wa.me/573135152530?text=Hola%20MALEJA%20Calzado,%20vengo%20de%20la%20web%20y%20quisiera%20informaci%C3%B3n%20sobre..."
+        <a href="https://wa.me/573172703742?text=Hola%20MALEJA%20Calzado,%20vengo%20de%20la%20web%20y%20quisiera%20informaci%C3%B3n%20sobre..."
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp de MALEJA Calzado">

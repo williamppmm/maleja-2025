@@ -7,7 +7,7 @@ require_once __DIR__ . '/config/db.php';
 $currentPage     = 'productos';
 $pageTitle       = 'Productos | MALEJA Calzado';
 $metaDescription = 'Catálogo de sandalias y calzado femenino: estilos, comodidad y actitud.';
-$canonicalUrl    = 'https://calzadomaleja.co/productos.php';
+$canonicalUrl    = 'https://malejacalzado.com/productos.php';
 
 /**
  * Parámetros de filtrado y paginación
@@ -226,7 +226,10 @@ include __DIR__ . '/includes/header.php';
                 class="producto-card__img"
                 loading="lazy"
                 width="400"
-                height="350">
+                height="350"
+                data-lightbox="<?= htmlspecialchars($p['imagen']) ?>"
+                style="cursor: zoom-in;"
+                title="Click para ampliar imagen">
             </picture>
 
             <div class="producto-card__body">

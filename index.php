@@ -11,7 +11,7 @@ require_once __DIR__ . '/config/db.php';
 $currentPage     = 'home';
 $pageTitle       = 'MALEJA Calzado | Calzado femenino en Cali';
 $metaDescription = 'Sandalias y calzado femenino con estilo y comodidad.';
-$canonicalUrl    = 'https://calzadomaleja.co/';
+$canonicalUrl    = 'https://malejacalzado.com/';
 
 /**
  * Consulta de productos destacados con imágenes desde la base de datos
@@ -66,7 +66,7 @@ include __DIR__ . '/includes/header.php';
       <p class="hero__slogan">¡Tu flow, tu ritmo, tu estilo... pa' vos!</p>
       <div class="hero__actions">
         <a href="productos.php" class="btn btn--primary">Ver Productos</a>
-        <a href="https://wa.me/573135152530?text=Hola%20MALEJA%2C%20me%20gustaría%20saber%20más%20sobre%20sus%20productos."
+        <a href="https://wa.me/573172703742?text=Hola%20MALEJA%2C%20me%20gustaría%20saber%20más%20sobre%20sus%20productos."
            class="btn btn--whatsapp"
            target="_blank" rel="noopener">Pedir por WhatsApp</a>
       </div>
@@ -108,7 +108,10 @@ include __DIR__ . '/includes/header.php';
                 class="producto-card__img"
                 loading="lazy"
                 width="400"
-                height="350">
+                height="350"
+                data-lightbox="<?= htmlspecialchars($p['imagen']) ?>"
+                style="cursor: zoom-in;"
+                title="Click para ampliar imagen">
             </picture>
 
             <div class="producto-card__body">
