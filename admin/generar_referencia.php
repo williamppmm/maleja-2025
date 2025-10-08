@@ -6,10 +6,6 @@ ob_start();
 
 header('Content-Type: application/json');
 
-// Configuración de errores para desarrollo (comentar en producción)
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 // Verificar que sea un admin autenticado
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     http_response_code(403);

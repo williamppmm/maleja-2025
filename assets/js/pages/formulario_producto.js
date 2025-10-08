@@ -199,13 +199,10 @@ class ReferenceManager {
     if (!prefijo || this.isGenerating) return null;
 
     this.isGenerating = true;
-    console.log('🔍 Consultando referencia para prefijo:', prefijo);
 
     try {
-      // URL correcta según tu estructura
       const url = `generar_referencia.php?prefijo=${encodeURIComponent(prefijo)}`;
-      console.log('📡 URL de consulta:', url);
-      
+
       const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -215,29 +212,23 @@ class ReferenceManager {
         credentials: 'same-origin'
       });
 
-      console.log('📊 Status de respuesta:', response.status);
-      console.log('📋 Content-Type:', response.headers.get('content-type'));
-
-      // Obtener el texto crudo de la respuesta para debugging
       const responseText = await response.text();
-      console.log('📄 Respuesta cruda (primeros 200 chars):', responseText.substring(0, 200));
 
-      // Verificar si es HTML (indica error/redirección)
       if (responseText.trim().startsWith('<') || responseText.includes('<!DOCTYPE')) {
-        console.error('❌ La respuesta es HTML, no JSON. Posibles causas:');
-        console.error('   - Sesión expirada (redirección a login)');
-        console.error('   - Error de PHP (página de error)');
-        console.error('   - Ruta incorrecta del archivo');
-        throw new Error('El servidor devolvió HTML en lugar de JSON');
+        if (window.MALEJA_DEBUG === true) {
+          console.error('Referencia: el servidor envio HTML en lugar de JSON.');
+        }
+        throw new Error('El servidor devolvio HTML en lugar de JSON');
       }
 
-      // Intentar parsear como JSON
       let data;
       try {
         data = JSON.parse(responseText);
       } catch (parseError) {
-        console.error('❌ Error al parsear JSON:', parseError);
-        throw new Error('Respuesta del servidor no es JSON válido');
+        if (window.MALEJA_DEBUG === true) {
+          console.error('Referencia: error al parsear JSON.', parseError);
+        }
+        throw new Error('Respuesta del servidor no es JSON valido');
       }
 
       if (!response.ok) {
@@ -245,30 +236,25 @@ class ReferenceManager {
       }
 
       if (data.error) {
-        console.error('❌ Error del servidor:', data.error);
+        if (window.MALEJA_DEBUG === true) {
+          console.error('Referencia: error del servidor.', data.error);
+        }
         throw new Error(data.error);
       }
 
-      console.log('✅ Referencia generada exitosamente:', data.referencia);
       return data.referencia;
-      
     } catch (error) {
-      console.error('💥 Error completo:', error);
-      
-      // En caso de error, generar referencia temporal local más inteligente
-      console.warn('⚠️ Generando referencia temporal local como fallback');
-      const numeroTemporal = Date.now() % 10000; // Usar timestamp para reducir duplicados
+      console.error('Referencia: fallo al obtener desde el servidor.', error);
+
+      const numeroTemporal = Date.now() % 10000;
       const referenciaFallback = prefijo + '-' + numeroTemporal.toString().padStart(4, '0');
-      console.log('🔄 Referencia temporal:', referenciaFallback);
-      
-      // Mostrar advertencia al usuario
+
       const referenciaInput = document.getElementById('referencia');
       if (referenciaInput) {
         UIUtils.mostrarError(referenciaInput, 'Error BD: usando referencia temporal');
       }
-      
+
       return referenciaFallback;
-      
     } finally {
       this.isGenerating = false;
     }
@@ -280,7 +266,6 @@ class ReferenceManager {
     const prefijo = ReferenceManager.generarPrefijo(nombre);
     
     if (!prefijo) {
-      console.warn('⚠️ No se pudo generar prefijo desde el nombre:', nombre);
       return;
     }
 
@@ -300,7 +285,6 @@ class ReferenceManager {
     UIUtils.limpiarError(referenciaInput);
 
     try {
-      console.log('🚀 Iniciando generación de referencia para:', nombre);
       
       const nuevaReferencia = await this.obtenerSiguienteReferencia(prefijo);
       
@@ -314,11 +298,10 @@ class ReferenceManager {
           referenciaInput.style.background = '';
         }, 1500);
         
-        console.log('✅ Referencia asignada al campo:', nuevaReferencia);
       }
       
     } catch (error) {
-      console.error('💥 Error final en generarReferenciaAutomatica:', error);
+      console.error('Error en generarReferenciaAutomatica:', error);
     } finally {
       // Restaurar estado
       referenciaInput.placeholder = originalPlaceholder;
@@ -409,7 +392,6 @@ class ReferenceManager {
         return;
       }
 
-      console.log('🔄 Regeneración manual solicitada');
       
       // Forzar regeneración
       referenciaInput.value = '';
@@ -837,3 +819,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // FUNCIONES GLOBALES (para compatibilidad)
 // ========================================
 window.removerPreview = ImageManager.removerPreview.bind(ImageManager);
+
+

@@ -115,11 +115,8 @@
     const info    = document.getElementById('dev-info');
     
     if (!trigger || !info) {
-      console.log('[dev-credit] Elementos no encontrados:', { trigger: !!trigger, info: !!info });
       return;
     }
-
-    console.log('[dev-credit] Inicializando tooltip del desarrollador');
 
     let visible  = false;
     let autoHide = null;
@@ -133,7 +130,6 @@
       
       // Auto-ocultar después de 6 segundos
       autoHide = setTimeout(hide, 6000);
-      console.log('[dev-credit] Tooltip mostrado');
     };
 
     const hide = () => {
@@ -142,14 +138,11 @@
       // Ocultar el tooltip removiendo la clase
       info.classList.remove('show');
       visible = false;
-      
-      console.log('[dev-credit] Tooltip ocultado');
     };
 
     // Event listener para el click en el trigger
     trigger.addEventListener('click', e => { 
       e.preventDefault(); 
-      console.log('[dev-credit] Click en trigger, visible:', visible);
       visible ? hide() : show(); 
     });
     
@@ -184,8 +177,6 @@
     if (typeof gtag === 'function') gtag('event', name, params);
     /* Meta Pixel */
     if (typeof fbq === 'function') fbq('track', name, params);
-    /* Consola para desarrollo */
-    console.log('[track]', name, params);
   }
 
   /* Exponer utilidades si hiciera falta */
@@ -200,10 +191,11 @@
    * 5. Manejo básico de errores
    * ------------------------------------------------------------- */
   window.addEventListener('error', e =>
-    console.error('💥 JS error:', e.error || e.message)
+    console.error('[JS error]', e.error || e.message)
   );
   window.addEventListener('unhandledrejection', e => {
-    console.error('💥 Promise rejection:', e.reason);
+    console.error('[Promise rejection]', e.reason);
     e.preventDefault();
   });
 })();
+

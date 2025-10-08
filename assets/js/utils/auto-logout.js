@@ -32,9 +32,8 @@
         getCsrfTokenAndLogout();
       }
     })
-    .catch(error => {
+    .catch(() => {
       // Si hay error en la verificación, no hacer nada
-      console.debug('No se pudo verificar sesión admin:', error);
     });
   }
 
@@ -57,13 +56,9 @@
       
       if (csrfInput && csrfInput.value) {
         performSilentLogout(csrfInput.value);
-      } else {
-        console.debug('No se pudo obtener token CSRF para auto-logout');
       }
     })
-    .catch(error => {
-      console.debug('Error obteniendo token CSRF:', error);
-    });
+    .catch(() => {});
   }
 
   function performSilentLogout(csrfToken) {
@@ -82,11 +77,9 @@
     })
     .then(() => {
       // Logout exitoso, pero silencioso
-      console.debug('Sesión admin cerrada automáticamente por seguridad');
     })
-    .catch(error => {
+    .catch(() => {
       // Si hay error, no mostrar nada al usuario
-      console.debug('Error en auto-logout:', error);
     });
   }
 

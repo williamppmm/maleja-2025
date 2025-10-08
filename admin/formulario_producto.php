@@ -2,11 +2,6 @@
 <?php
 session_start();
 
-// Configuración de errores (desactívala en producción)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Autenticación
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     header('Location: login.php?error=session');

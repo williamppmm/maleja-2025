@@ -147,7 +147,9 @@ class Lightbox {
 
     imgLoader.onerror = () => {
       this.lightbox.classList.remove('is-loading');
-      console.error('Error cargando imagen:', currentImage.src);
+      if (window.MALEJA_DEBUG === true) {
+        console.error('Error cargando imagen:', currentImage.src);
+      }
       this.close();
     };
 

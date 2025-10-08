@@ -37,8 +37,7 @@
           window.location.href = ADMIN_LOGIN;
         }
       })
-      .catch(error => {
-        console.log('Error verificando sesión admin:', error);
+      .catch(() => {
         // En caso de error, ir al login
         window.location.href = ADMIN_LOGIN;
       });
@@ -141,7 +140,7 @@
       showLogoutNotification();
     })
     .catch(error => {
-      console.error('Error al cerrar sesión:', error);
+      console.error('Error al cerrar sesion:', error);
       if (modal) modal.remove();
     });
   }
@@ -187,3 +186,4 @@
     }, 3000);
   }
 })();
+
