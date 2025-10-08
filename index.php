@@ -78,7 +78,7 @@ include __DIR__ . '/includes/header.php';
 <section class="section productos-preview" aria-labelledby="productos-destacados-title">
   <div class="container">
     <h2 id="productos-destacados-title" class="section__title">¡Lo más chévere! 😎</h2>
-    <p class="section__subtitle">Las sandalias que están causando furor</p>
+    <p class="section__subtitle">Lo que está causando furor</p>
 
     <?php if (empty($destacados)): ?>
       <div class="mensaje-vacio">

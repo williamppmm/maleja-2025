@@ -63,7 +63,7 @@ $extraHead        = $extraHead        ?? '';
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/components/dev-credit.css">
-  <link rel="stylesheet" href="assets/css/components/modal.css">
+  <link rel="stylesheet" href="assets/css/components/modal-producto.css">
 
   <!-- CSS condicional por página -->
   <?php if ($currentPage === 'home'): ?>
