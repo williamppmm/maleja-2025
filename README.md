@@ -36,14 +36,16 @@ MALEJA Calzado es una tienda online minimalista enfocada en:
 ```
 maleja/
 ├── admin/
-│   ├── dashboard.php          # Panel principal administrativo
-│   ├── formulario_producto.php # Crear/editar productos
-│   ├── generar_referencia.php  # Generador automático de referencias
-│   ├── listar_categorias.php   # Gestión de categorías
-│   ├── listar_productos.php    # Listado y administración de productos
-│   ├── login.php              # Autenticación de administradores
-│   ├── logout.php             # Cerrar sesión
-│   └── procesar_producto.php   # Procesamiento CRUD de productos
+│   ├── dashboard.php               # Panel principal administrativo
+│   ├── formulario_producto.php     # Crear nuevos productos
+│   ├── editar_producto.php         # Editar productos existentes
+│   ├── generar_referencia.php      # Generador automático de referencias
+│   ├── listar_categorias.php       # Gestión de categorías
+│   ├── listar_productos.php        # Listado y administración de productos
+│   ├── login.php                   # Autenticación de administradores
+│   ├── logout.php                  # Cerrar sesión
+│   ├── procesar_producto.php       # Procesamiento de creación de productos
+│   └── procesar_edicion_producto.php # Procesamiento de edición de productos
 ├── assets/
 │   ├── css/
 │   │   ├── base.css           # Estilos base y variables CSS
@@ -52,6 +54,7 @@ maleja/
 │   │   ├── utilities.css      # Clases utilitarias
 │   │   ├── components/
 │   │   │   ├── dev-credit.css # Créditos del desarrollador
+│   │   │   ├── lightbox.css   # Estilos para lightbox de imágenes
 │   │   │   └── modal-producto.css # Modal de detalle de productos
 │   │   └── pages/
 │   │       ├── contacto.css   # Página de contacto
@@ -64,7 +67,9 @@ maleja/
 │   ├── js/
 │   │   ├── main.js            # JavaScript principal
 │   │   ├── components/
-│   │   │   └── modal-producto.js # Modal de productos
+│   │   │   ├── lightbox.js    # Lightbox para galería de imágenes
+│   │   │   ├── modal-producto.js # Modal de productos
+│   │   │   └── product-image-zoom.js # Zoom de imágenes de productos
 │   │   ├── pages/
 │   │   │   ├── formulario_producto.js # Formulario de productos
 │   │   │   └── login.js       # Funcionalidades de login
@@ -85,6 +90,11 @@ maleja/
 │   ├── admin_auth.php     # Middleware de autenticación admin
 │   ├── header.php         # Header global con meta OG
 │   └── footer.php         # Footer global
+├── scripts/
+│   └── generate_sitemap.php # Generador dinámico de sitemap XML
+├── .github/
+│   └── workflows/
+│       └── deploy.yml     # GitHub Actions para deploy automático FTP
 ├── index.php              # Página principal
 ├── productos.php          # Catálogo con filtros y paginación
 ├── nosotras.php           # Sobre la empresa
@@ -179,12 +189,12 @@ mysql -u root -p malejacalzado < database/seed.sql
 
 ## Estadísticas del Proyecto
 
-- **Archivos PHP:** 18
-- **Archivos CSS:** 13  
-- **Archivos JavaScript:** 7
-- **Imágenes:** 13+
-- **Carpetas:** 17
+- **Archivos PHP:** 20+ (frontend, admin y utilidades)
+- **Archivos CSS:** 14 (modular y organizado por componentes/páginas)
+- **Archivos JavaScript:** 9 (vanilla JS con separación de responsabilidades)
+- **Commits:** 22+ (control de versiones con Git)
 - **Arquitectura:** Modular con separación de responsabilidades
+- **Deploy:** Automatizado con GitHub Actions (FTP)
 
 ## Funcionalidades Técnicas
 
@@ -212,11 +222,12 @@ mysql -u root -p malejacalzado < database/seed.sql
 - **Gestión de imágenes** - Fallback automático a placeholder
 
 **Administrativo:**
-- **Autenticación segura** - Sistema de login con middleware de protección
-- **CRUD completo** - Crear, leer, actualizar y eliminar productos
-- **Gestión de imágenes** - Upload y procesamiento de imágenes de productos
-- **Generador de referencias** - Creación automática de códigos únicos
-- **Dashboard funcional** - Panel de control con estadísticas y gestión
+- **Autenticación segura** - Sistema de login con middleware de protección y CSRF
+- **CRUD completo** - Crear, leer, actualizar y eliminar productos con validaciones
+- **Gestión de imágenes** - Upload múltiple, procesamiento, eliminación y actualización de alt text
+- **Edición avanzada** - Formulario de edición independiente con vista previa de imágenes
+- **Generador de referencias** - Creación automática de códigos únicos para productos
+- **Dashboard funcional** - Panel de control con estadísticas y gestión centralizada
 
 ## Despliegue
 
@@ -227,13 +238,27 @@ mysql -u root -p malejacalzado < database/seed.sql
 4. Navegar a `http://localhost/maleja`
 5. Panel admin: `http://localhost/maleja/admin/`
 
-### Producción (Hostinger)
-1. Subir código vía Git/SFTP
-2. Crear BD y usuario → actualizar `.env`
-3. Importar tablas y datos
-4. Crear usuario administrador en BD
-5. **IMPORTANTE:** Eliminar `gen_hash.php` después del despliegue
-6. Verificar acceso: `https://dominio.com/admin/`
+### Producción (Hostinger con GitHub Actions)
+
+**Deploy automático:**
+El proyecto utiliza GitHub Actions para deploy automático vía FTP cuando se hace push a `main`.
+
+Configuración de secretos en GitHub:
+- `FTP_SERVER` - Servidor FTP de Hostinger
+- `FTP_USERNAME` - Usuario FTP
+- `FTP_PASSWORD` - Contraseña FTP
+
+**Pasos manuales iniciales:**
+1. Crear BD y usuario en Hostinger → actualizar `.env` en servidor
+2. Importar tablas y datos iniciales
+3. Crear usuario administrador en BD
+4. **IMPORTANTE:** Eliminar `gen_hash.php` después del despliegue
+5. Verificar acceso: `https://calzadomaleja.com`
+
+**Archivos excluidos del deploy automático:**
+- `.env` y configuraciones locales
+- `assets/images/productos/` (imágenes se suben manualmente)
+- Scripts de desarrollo y base de datos
 
 ## Roadmap
 
@@ -248,24 +273,29 @@ mysql -u root -p malejacalzado < database/seed.sql
 
 ### ✅ Fase 2 - Panel Administrativo (Completado)
 
-- [x] Login seguro con autenticación y middleware de protección
+- [x] Login seguro con autenticación, CSRF y middleware de protección
 - [x] Dashboard administrativo con estadísticas y gestión
-- [x] CRUD completo de productos con validaciones
-- [x] Upload de imágenes con procesamiento automático
+- [x] CRUD completo de productos con validaciones robustas
+- [x] Formulario independiente para editar productos con vista previa
+- [x] Upload múltiple de imágenes con procesamiento y validación
+- [x] Gestión de imágenes: eliminar, reordenar y editar alt text
 - [x] Generador automático de referencias de productos
 - [x] Gestión de categorías y listados administrativos
 - [x] Auto-logout por inactividad y acceso discreto al admin
 - [x] Interfaz administrativa responsive y funcional
+- [x] Deploy automático con GitHub Actions (FTP)
+- [x] Generador dinámico de sitemap XML para SEO
 
 ### 🔄 Fase 3 - Optimizaciones y Mejoras (En evaluación)
 
 | Tarea | Descripción | Prioridad |
 |-------|-------------|-----------|
 | Compresión automática | Optimización automática de imágenes en upload | 🟡 Media |
-| Datos estructurados | Implementar JSON-LD para SEO avanzado | 🟡 Media |
+| Datos estructurados | Implementar JSON-LD para SEO avanzado (Schema.org) | 🟡 Media |
 | Log de auditoría | Sistema de logs para cambios administrativos | 🟡 Media |
 | Backup automatizado | Sistema de respaldos automáticos de BD | 🟡 Media |
-| Variaciones de producto | Tallas y colores como opciones | 🟢 Baja |
+| Variaciones de producto | Tallas y colores como opciones de producto | 🟢 Baja |
+| PWA | Convertir en Progressive Web App | 🟢 Baja |
 
 ### 🚀 Fase 4 - E-commerce (Futuro)
 
@@ -321,4 +351,4 @@ Proyecto propietario de MALEJA Calzado. Código disponible para referencia educa
 
 ---
 
-**Última actualización:** Agosto 2025 - Sistema completo con panel administrativo funcional
+**Última actualización:** Octubre 2025 - Sistema completo con panel administrativo, edición avanzada y deploy automático
