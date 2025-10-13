@@ -629,7 +629,7 @@
   }
   
   .modal__actions .btn {
-    flex: 1 1 100%;
+    flex: 1 1 calc(50% - 0.4rem);
     padding: .7rem 1rem;
   }
   
