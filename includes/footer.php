@@ -114,9 +114,29 @@ $adminLogin  = $base . '/admin/login.php';
           </div>
           <div class="modal__info">
             <h3 id="modal-titulo" class="modal__title"></h3>
-            <p class="modal__ref"    id="modal-ref"></p>
-            <p class="modal__precio" id="modal-precio"></p>
+            <div class="modal__meta">
+              <p class="modal__ref" id="modal-ref"></p>
+              <p class="modal__precio" id="modal-precio"></p>
+            </div>
             <p class="modal__descripcion" id="modal-descripcion"></p>
+
+            <!-- Selector de talla -->
+            <div class="modal__selectors">
+              <div class="modal__selector-group">
+                <label for="modal-talla" class="modal__label">Selecciona tu talla:</label>
+                <select id="modal-talla" class="modal__select">
+                  <option value="">Seleccionar talla</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                  <option value="41">41</option>
+                </select>
+              </div>
+            </div>
+
             <div class="modal__actions">
               <a id="modal-btn-whatsapp" class="btn btn--whatsapp" target="_blank" rel="noopener" href="#">Pedir por WhatsApp</a>
               <a id="modal-btn-mail"     class="btn btn--secondary" href="#">Escribir por correo</a>

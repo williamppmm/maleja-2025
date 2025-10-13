@@ -1,28 +1,30 @@
 #modal-imagen {
   display: block;
-  max-width: 100%;
-  max-height: 400px;
-  margin: 0 auto 1rem;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  margin: 0;
   border-radius: 2px;
   object-fit: contain;
 }
 
 #modal-producto .modal__img-wrap {
-  width: 350px;
-  height: 400px;  
-  background: #111;  
+  width: min(340px, 90vw);
+  background: #111;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem;
+  padding: 1.25rem;
+  margin: 0 auto 1.25rem;
+  box-sizing: border-box;
 }
 
 @media (max-width: 767px) {
   #modal-producto .modal__img-wrap {
-    width: 300px;
-    height: 280px;  /* Menos alto que los 400px del desktop */
-    max-width: 85vw;
+    width: min(85vw, 300px);
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
   
   #modal-imagen {
