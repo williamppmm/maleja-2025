@@ -35,6 +35,40 @@ $extraHead        = $extraHead        ?? '';
 
   <!-- SEO principal -->
   <title><?= htmlspecialchars($pageTitle) ?></title>
+  <?php
+    require_once __DIR__ . '/../config/env.php';
+
+    $baseAppUrl   = rtrim($APP_URL ?? ($_ENV['APP_URL'] ?? ''), '/');
+    if ($baseAppUrl === '') {
+        $scheme     = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+        $host       = $_SERVER['HTTP_HOST'] ?? 'localhost';
+        $baseAppUrl = rtrim($scheme . $host, '/');
+    }
+
+    $canonicalMap = [
+        '/index.php'     => $baseAppUrl . '/',
+        '/productos.php' => $baseAppUrl . '/productos',
+        '/nosotras.php'  => $baseAppUrl . '/nosotras',
+        '/contacto.php'  => $baseAppUrl . '/contacto',
+    ];
+
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '/';
+    if (isset($canonicalMap[$scriptName])) {
+        $computedCanonical = $canonicalMap[$scriptName];
+    } else {
+        $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        if ($path === '' || $path === false) {
+            $path = '/';
+        }
+        $computedCanonical = $path === '/'
+            ? $baseAppUrl . '/'
+            : $baseAppUrl . $path;
+    }
+
+    if (empty($canonicalUrl)) {
+        $canonicalUrl = $computedCanonical;
+    }
+  ?>
   <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
   <meta name="author" content="MALEJA Calzado">
   <?php if ($noIndex): ?>
@@ -145,7 +179,7 @@ $extraHead        = $extraHead        ?? '';
               decoding="async"
               alt="">
         </a>
-        <a href="https://www.facebook.com/profile.php?id=61578936597273"
+        <a href="https://www.facebook.com/people/Maleja-Calzado/61578936597273/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook de MALEJA Calzado">

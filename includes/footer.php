@@ -173,5 +173,40 @@ $adminLogin  = $base . '/admin/login.php';
 
   <!-- Config global para JS -->
   <script>window.__ADMIN_LOGIN__ = '<?= $adminLogin ?>';</script>
+
+  <!-- Datos estructurados ShoeStore -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ShoeStore",
+    "name": "MALEJA Calzado",
+    "url": "https://malejacalzado.com/",
+    "logo": "https://malejacalzado.com/assets/images/logos/logo.svg",
+    "image": "https://malejacalzado.com/assets/images/logos/logo.png",
+    "telephone": "+57 317 270 3742",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrera 25 #42A-20",
+      "addressLocality": "Cali",
+      "addressRegion": "Valle del Cauca",
+      "postalCode": "760012",
+      "addressCountry": "CO"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"
+      ],
+      "opens": "08:00",
+      "closes": "20:00"
+    }],
+    "sameAs": [
+      "https://www.facebook.com/people/Maleja-Calzado/61578936597273/",
+      "https://www.instagram.com/malejacalzado/",
+      "https://api.whatsapp.com/send/?phone=573172703742"
+    ],
+    "areaServed": "CO"
+  }
+  </script>
 </body>
 </html>

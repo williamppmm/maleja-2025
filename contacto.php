@@ -95,7 +95,7 @@ include __DIR__ . '/includes/header.php';
             <img src="assets/icons/instagram.png" alt="" width="24" height="24">
             @malejacalzado
           </a>
-          <a href="https://www.facebook.com/share/178Cq8h6pT/" 
+          <a href="https://www.facebook.com/people/Maleja-Calzado/61578936597273/" 
              target="_blank" rel="noopener" class="social-link social-link--proximamente">
             <img src="assets/icons/facebook.png" alt="" width="24" height="24">
             @malejacalzado

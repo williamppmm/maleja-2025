@@ -1,5 +1,3 @@
-<!-- config/env.php -->
- 
 <?php
 /**
  * Carga variables desde un archivo .env (si existe) y las expone en $_ENV
@@ -25,5 +23,17 @@ if (is_readable($envFile)) {
             $_ENV[$key] = $value;
             putenv("$key=$value");
         }
+    }
+}
+
+// Definir constantes de aplicación convenientes
+if (!isset($APP_URL) || !$APP_URL) {
+    $envAppUrl = $_ENV['APP_URL'] ?? getenv('APP_URL') ?: '';
+    if ($envAppUrl !== '') {
+        $APP_URL = rtrim($envAppUrl, '/');
+    } else {
+        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+        $host   = $_SERVER['HTTP_HOST'] ?? 'localhost';
+        $APP_URL = rtrim($scheme . $host, '/');
     }
 }

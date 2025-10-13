@@ -3,11 +3,12 @@
     Deny from all
 </FilesMatch>
 
-# Forzar HTTPS
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.malejacalzado\.com$ [NC]
+RewriteRule ^(.*)$ https://malejacalzado.com/$1 [R=301,L]
 
-# Opcional: Redirigir www a sin www (puedes cambiarlo si prefieres www)
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+# Rutas limpias sin .php
+RewriteRule ^productos/?$ productos.php [L,QSA]
+RewriteRule ^nosotras/?$ nosotras.php [L,QSA]
+RewriteRule ^contacto/?$ contacto.php [L,QSA]
