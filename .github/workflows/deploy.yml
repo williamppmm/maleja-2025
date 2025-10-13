@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP (FULL SYNC)
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -22,19 +22,17 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: /public_html/
-          state-name: .ftp-deploy-sync-state-new.json  # 👈 CAMBIO TEMPORAL
+          server-dir: /
           exclude: |
             **/.git*
             **/.github/**
-            **/.git*/**
             **/node_modules/**
             **/scripts/**
             **/*.log
-            **/.env
             .env
             .env.*
             **/config/env.php
+            **/assets/images/productos/**
             database/**
             README.md
           dangerous-clean-slate: false
