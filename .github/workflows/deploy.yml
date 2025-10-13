@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP
+      - name: Deploy via FTP (FULL SYNC)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -23,6 +23,7 @@ jobs:
           protocol: ftp
           port: 21
           server-dir: /public_html/
+          state-name: .ftp-deploy-sync-state-new.json  # 👈 CAMBIO TEMPORAL
           exclude: |
             **/.git*
             **/.github/**
@@ -33,8 +34,7 @@ jobs:
             **/.env
             .env
             .env.*
-            README.md
+            **/config/env.php
             database/**
+            README.md
           dangerous-clean-slate: false
-
-# script de despliegue ftp a hostinger
