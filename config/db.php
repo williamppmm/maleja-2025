@@ -33,6 +33,14 @@ try {
         die("Error de conexión BD: " . $e->getMessage());
     } else {
         error_log("Error de conexión BD: " . $e->getMessage());
-        die("No se pudo conectar a la base de datos.");
+        http_response_code(503);
+
+        // Mostrar página de error genérica en producción
+        if (file_exists(__DIR__ . '/../error503.html')) {
+            include __DIR__ . '/../error503.html';
+        } else {
+            echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Servicio no disponible</title></head><body><h1>Servicio temporalmente no disponible</h1><p>Estamos trabajando para resolver este inconveniente. Por favor, intenta más tarde.</p></body></html>';
+        }
+        exit;
     }
 }

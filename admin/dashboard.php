@@ -172,8 +172,8 @@ $logoutPhp = 'logout.php';
       }
     });
 
-    // Log de desarrollo
-    if (window.location.hostname === 'localhost' || window.location.hostname.includes('dev')) {
+    // Log de desarrollo - Solo en localhost
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       console.log('🎛️ Dashboard administrativo MALEJA inicializado');
     }
   </script>

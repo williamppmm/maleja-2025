@@ -236,14 +236,15 @@ try {
     foreach ($imagenesGuardadas as $path) {
         if (file_exists($path)) @unlink($path);
     }
-}
+
     if ($_ENV['APP_DEBUG'] === 'true') {
-    // Entorno local: muestra el error directamente
-    die("Error al procesar producto: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8'));
-} else {
-    // Producción: registra y muestra mensaje general
-    error_log("Error al procesar producto: " . $e->getMessage());
-    $_SESSION['form_errors'] = ['Ocurrió un error interno. Por favor, inténtalo nuevamente.'];
-    header('Location: formulario_producto.php?error=internal');
-    exit();
+        // Entorno local: muestra el error directamente
+        die("Error al procesar producto: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8'));
+    } else {
+        // Producción: registra y muestra mensaje general
+        error_log("Error al procesar producto: " . $e->getMessage());
+        $_SESSION['form_errors'] = ['Ocurrió un error interno. Por favor, inténtalo nuevamente.'];
+        header('Location: formulario_producto.php?error=internal');
+        exit();
+    }
 }

@@ -1,8 +1,40 @@
+# Protección de archivos sensibles
 <FilesMatch "^\.env">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
+# Headers de seguridad HTTP
+<IfModule mod_headers.c>
+    # Prevenir MIME sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Protección contra clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+
+    # Protección XSS en navegadores antiguos
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Control de referrer para privacidad
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Remover información del servidor
+    Header unset X-Powered-By
+    Header always unset X-Powered-By
+</IfModule>
+
+# Compresión GZIP para mejor rendimiento
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Redirección forzada a HTTPS y sin www
 RewriteEngine On
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.malejacalzado\.com$ [NC]
