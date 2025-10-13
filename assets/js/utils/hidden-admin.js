@@ -140,7 +140,9 @@
       showLogoutNotification();
     })
     .catch(error => {
-      console.error('Error al cerrar sesion:', error);
+      if (window.MALEJA_DEBUG === true) {
+        console.error('Error al cerrar sesion:', error);
+      }
       if (modal) modal.remove();
     });
   }

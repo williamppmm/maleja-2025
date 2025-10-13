@@ -13,6 +13,14 @@ const CONFIG = {
   REFERENCIA_MAX_LENGTH: 50
 };
 
+const DEBUG_MODE = window.MALEJA_DEBUG === true;
+
+function debugError(...args) {
+  if (DEBUG_MODE) {
+    console.error(...args);
+  }
+}
+
 // ========================================
 // GESTIÓN DE INACTIVIDAD
 // ========================================
@@ -215,9 +223,7 @@ class ReferenceManager {
       const responseText = await response.text();
 
       if (responseText.trim().startsWith('<') || responseText.includes('<!DOCTYPE')) {
-        if (window.MALEJA_DEBUG === true) {
-          console.error('Referencia: el servidor envio HTML en lugar de JSON.');
-        }
+        debugError('Referencia: el servidor envio HTML en lugar de JSON.');
         throw new Error('El servidor devolvio HTML en lugar de JSON');
       }
 
@@ -225,9 +231,7 @@ class ReferenceManager {
       try {
         data = JSON.parse(responseText);
       } catch (parseError) {
-        if (window.MALEJA_DEBUG === true) {
-          console.error('Referencia: error al parsear JSON.', parseError);
-        }
+        debugError('Referencia: error al parsear JSON.', parseError);
         throw new Error('Respuesta del servidor no es JSON valido');
       }
 
@@ -236,15 +240,13 @@ class ReferenceManager {
       }
 
       if (data.error) {
-        if (window.MALEJA_DEBUG === true) {
-          console.error('Referencia: error del servidor.', data.error);
-        }
+        debugError('Referencia: error del servidor.', data.error);
         throw new Error(data.error);
       }
 
       return data.referencia;
     } catch (error) {
-      console.error('Referencia: fallo al obtener desde el servidor.', error);
+      debugError('Referencia: fallo al obtener desde el servidor.', error);
 
       const numeroTemporal = Date.now() % 10000;
       const referenciaFallback = prefijo + '-' + numeroTemporal.toString().padStart(4, '0');
@@ -301,7 +303,7 @@ class ReferenceManager {
       }
       
     } catch (error) {
-      console.error('Error en generarReferenciaAutomatica:', error);
+      debugError('Error en generarReferenciaAutomatica:', error);
     } finally {
       // Restaurar estado
       referenciaInput.placeholder = originalPlaceholder;
