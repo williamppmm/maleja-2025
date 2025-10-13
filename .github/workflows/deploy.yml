@@ -36,3 +36,5 @@ jobs:
             README.md
             database/**
           dangerous-clean-slate: false
+
+# script de despliegue ftp a hostinger
