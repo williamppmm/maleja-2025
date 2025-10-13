@@ -34,8 +34,14 @@
     AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
 
-# Redirección forzada a HTTPS y sin www
+# Habilitar RewriteEngine
 RewriteEngine On
+
+# Redirección forzada a HTTPS y sin www SOLO EN PRODUCCIÓN
+# Se ejecuta solo si NO estamos en localhost
+RewriteCond %{HTTP_HOST} !^localhost [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+RewriteCond %{HTTP_HOST} !^192\.168\. [NC]
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.malejacalzado\.com$ [NC]
 RewriteRule ^(.*)$ https://malejacalzado.com/$1 [R=301,L]
