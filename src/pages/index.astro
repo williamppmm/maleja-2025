@@ -51,7 +51,7 @@ const formatPrice = (precio: number) =>
       <div class="container product-grid">
         {destacados.map((producto) => (
           <article class="product-card">
-            <a href="/productos" class="product-card__media" aria-label={`Ver ${producto.data.nombre}`}>
+            <a href={`/productos/${producto.id}`} class="product-card__media" aria-label={`Ver ${producto.data.nombre}`}>
               <img
                 src={producto.data.imagenPrincipal}
                 alt={producto.data.descripcionCorta ?? producto.data.nombre}
@@ -79,7 +79,7 @@ const formatPrice = (precio: number) =>
         ))}
       </div>
       <div class="section__cta">
-        <a class="btn btn--secondary" href="/productos">Ver catalogo completo</a>
+        <a class="btn btn--secondary" href="/productos">Ver catálogo completo</a>
       </div>
     </section>
 

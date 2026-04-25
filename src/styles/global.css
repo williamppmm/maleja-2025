@@ -174,9 +174,25 @@ button {
 
 .site-footer__links {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-3);
   color: color-mix(in srgb, var(--color-bg) 82%, transparent);
   font-size: var(--text-sm);
+}
+
+.site-footer__links a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color var(--transition-fast);
+}
+
+.site-footer__links a:hover {
+  color: var(--color-bg);
+}
+
+.site-footer__links .icon {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
 }
 
 .whatsapp-float {
@@ -192,6 +208,13 @@ button {
   background-color: #25D366;
   color: #fff;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.whatsapp-float:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.20);
 }
 
 .hero-home {
@@ -1090,11 +1113,6 @@ button {
   padding-top: var(--space-4);
 }
 
-.product-detail__cta .btn {
-  display: inline-flex;
-  gap: var(--space-2);
-  align-items: center;
-}
 
 .product-detail__hint {
   font-size: var(--text-xs);
