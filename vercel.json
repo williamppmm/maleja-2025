@@ -1,0 +1,34 @@
+{
+  "redirects": [
+    { "source": "/index.php",     "destination": "/",          "permanent": true },
+    { "source": "/productos.php", "destination": "/productos",  "permanent": true },
+    { "source": "/nosotras.php",  "destination": "/nosotras",   "permanent": true },
+    { "source": "/contacto.php",  "destination": "/contacto",   "permanent": true },
+    { "source": "/admin/:path*",  "destination": "/",           "permanent": false },
+    { "source": "/config/:path*", "destination": "/",           "permanent": false },
+    { "source": "/includes/:path*","destination": "/",          "permanent": false },
+    { "source": "/scripts/:path*","destination": "/",           "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options",        "value": "DENY" },
+        { "key": "Referrer-Policy",        "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/icons/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
