@@ -358,6 +358,10 @@ button {
   max-width: 820px;
 }
 
+.page-hero .page-hero__inner {
+  max-width: var(--max-width);
+}
+
 .catalog-section {
   padding-block: var(--space-12) var(--space-20);
 }

@@ -3,8 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import { WHATSAPP_NUMBER, whatsappMessages } from '../data/categorias';
 
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.contacto)}`;
-const whatsappCatalogo = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.catalogo)}`;
-
 const faq = [
   {
     q: '¿Manejan todas las tallas?',
@@ -200,7 +198,7 @@ const faq = [
           <a class="btn btn--primary btn--lg" href={whatsappUrl} target="_blank" rel="noopener">
             ¡Hablemos por WhatsApp!
           </a>
-          <a class="btn btn--outline btn--lg" href={whatsappCatalogo} target="_blank" rel="noopener">
+          <a class="btn btn--outline btn--lg" href="/productos">
             Ver catálogo
           </a>
         </div>
