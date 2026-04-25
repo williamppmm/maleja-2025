@@ -1,0 +1,15 @@
+{
+  "nombre": "Sandalia Plana",
+  "referencia": "JAP8299",
+  "precio": 0,
+  "descripcionCorta": "Sandalia elegante color negro apliques dorados.",
+  "descripcionLarga": "Sandalia plana en color negro con apliques dorados que le dan un toque glamoroso y elegante. Ideal para combinar con outfits casuales o de noche.",
+  "imagenPrincipal": "",
+  "imagenes": [],
+  "destacado": false,
+  "ordenDestacado": 0,
+  "activo": true,
+  "categorias": ["sandalia"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": []
+}

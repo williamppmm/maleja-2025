@@ -1,0 +1,15 @@
+{
+  "nombre": "Sandalia Plana",
+  "referencia": "JAP8329",
+  "precio": 0,
+  "descripcionCorta": "Sandalia plana color dorado.",
+  "descripcionLarga": "Sandalia plana en tono dorado. Luminosa y elegante, ideal para looks de día o noche. El dorado nunca falla para dar ese toque especial a cualquier outfit.",
+  "imagenPrincipal": "",
+  "imagenes": [],
+  "destacado": false,
+  "ordenDestacado": 0,
+  "activo": true,
+  "categorias": ["sandalia"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": []
+}

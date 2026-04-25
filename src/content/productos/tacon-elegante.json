@@ -1,0 +1,15 @@
+{
+  "nombre": "Tacón Elegante",
+  "referencia": "JAP8331",
+  "precio": 0,
+  "descripcionCorta": "Tacón elegante beige.",
+  "descripcionLarga": "Tacón elegante en tono beige, líneas limpias y acabado fino. Ideal para ocasiones especiales o looks de oficina con personalidad. Comodidad y estilo en cada paso.",
+  "imagenPrincipal": "",
+  "imagenes": [],
+  "destacado": false,
+  "ordenDestacado": 0,
+  "activo": true,
+  "categorias": ["tacon"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": []
+}

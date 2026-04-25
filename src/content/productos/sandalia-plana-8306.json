@@ -1,0 +1,15 @@
+{
+  "nombre": "Sandalia Plana",
+  "referencia": "JAP8306",
+  "precio": 0,
+  "descripcionCorta": "Sandalia elegante color negro con brillantes.",
+  "descripcionLarga": "Sandalia plana negra con acabados en brillantes. Diseño elegante y moderno para quien quiere brillar con cada paso.",
+  "imagenPrincipal": "",
+  "imagenes": [],
+  "destacado": false,
+  "ordenDestacado": 0,
+  "activo": true,
+  "categorias": ["sandalia"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": []
+}

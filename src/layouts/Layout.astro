@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import '../styles/components/buttons.css';
+import '../styles/components/badges.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'product';
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description = 'Calzado femenino seleccionado con amor y calidad. Asesoría personalizada por WhatsApp. Desde Cali para mujeres que caminan con seguridad.',
+  ogImage = '/images/logos/logo.png',
+  ogType = 'website',
+  canonicalUrl,
+} = Astro.props;
+
+const siteUrl = 'https://calzadomaleja.com';
+const canonical = canonicalUrl ?? `${siteUrl}${Astro.url.pathname}`;
+const fullTitle = title.includes('MALEJA') ? title : `${title} | MALEJA Calzado`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#C4637A" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="MALEJA Calzado" />
+    <meta property="og:locale" content="es_CO" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+    <slot />
+  </body>
+</html>

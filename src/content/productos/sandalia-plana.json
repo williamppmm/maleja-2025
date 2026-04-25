@@ -1,0 +1,15 @@
+{
+  "nombre": "Sandalia Plana",
+  "referencia": "JAP8330",
+  "precio": 0,
+  "descripcionCorta": "Sandalia plana dorada.",
+  "descripcionLarga": "Sandalia plana en tono dorado, elegante y versátil. Perfecta para complementar looks casuales y de ocasión. Materiales seleccionados con los más altos estándares de calidad y comodidad.",
+  "imagenPrincipal": "",
+  "imagenes": [],
+  "destacado": true,
+  "ordenDestacado": 1,
+  "activo": true,
+  "categorias": ["sandalia"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": ["destacado"]
+}

@@ -1,12 +1,14 @@
-# Archivos sensibles / locales
+# Dependencias
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Entorno
 .env
 .env.local
 .env.production
-*.log
-
-# Dependencias (si algún día usas Composer / Node)
-vendor/
-node_modules/
 
 # Editor / SO
 .vscode/
@@ -14,6 +16,6 @@ node_modules/
 .DS_Store
 Thumbs.db
 
-# Cachés
-*.cache
-.ftpignore
+# Logs
+*.log
+npm-debug.log*

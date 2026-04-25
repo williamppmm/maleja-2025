@@ -1,0 +1,15 @@
+{
+  "nombre": "Sandalia Plana",
+  "referencia": "JAP8326",
+  "precio": 0,
+  "descripcionCorta": "Sandalia plana color negro.",
+  "descripcionLarga": "Sandalia plana en negro clásico. Minimalista y elegante, un básico de temporada que combina con todo. La sencillez hecha calzado.",
+  "imagenPrincipal": "",
+  "imagenes": [],
+  "destacado": false,
+  "ordenDestacado": 0,
+  "activo": true,
+  "categorias": ["sandalia"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": []
+}

@@ -1,0 +1,15 @@
+{
+  "nombre": "Sandalia Deportiva",
+  "referencia": "JAP8312",
+  "precio": 0,
+  "descripcionCorta": "Sandalia deportiva.",
+  "descripcionLarga": "Sandalia deportiva con suela ergonómica y diseño funcional. Comodidad para el día activo sin sacrificar el estilo. Perfecta para Cali y su ritmo.",
+  "imagenPrincipal": "",
+  "imagenes": [],
+  "destacado": false,
+  "ordenDestacado": 0,
+  "activo": true,
+  "categorias": ["deportiva", "sandalia"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": []
+}

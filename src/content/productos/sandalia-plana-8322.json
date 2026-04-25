@@ -1,0 +1,15 @@
+{
+  "nombre": "Sandalia Plana",
+  "referencia": "JAP8322",
+  "precio": 0,
+  "descripcionCorta": "Sandalia plana negra apliques dorados.",
+  "descripcionLarga": "Sandalia plana en negro con apliques dorados. La combinación negro y dorado es atemporal y sofisticada, perfecta para quien busca elegancia sin esfuerzo.",
+  "imagenPrincipal": "",
+  "imagenes": [],
+  "destacado": false,
+  "ordenDestacado": 0,
+  "activo": true,
+  "categorias": ["sandalia"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": []
+}
