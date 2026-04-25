@@ -64,11 +64,14 @@
 }
 
 /* WhatsApp en hero: outline de marca con ícono */
-.hero-wa-btn img {
-  filter: brightness(0) saturate(100%) invert(38%) sepia(60%) saturate(400%) hue-rotate(300deg) brightness(90%);
-  flex-shrink: 0;
+.hero-wa-btn {
+  color: var(--color-primary);
 }
-.hero-wa-btn:hover img {
+
+.hero-wa-btn .icon--current {
+  filter: brightness(0) saturate(100%) invert(41%) sepia(22%) saturate(1276%) hue-rotate(298deg) brightness(91%) contrast(88%);
+}
+.hero-wa-btn:hover .icon--current {
   filter: brightness(0) saturate(100%) invert(100%);
 }
 
