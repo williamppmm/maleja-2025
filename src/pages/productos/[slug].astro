@@ -1,0 +1,215 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { WHATSAPP_NUMBER, whatsappMessages, categorias } from '../../data/categorias';
+
+export async function getStaticPaths() {
+  const productos = await getCollection('productos');
+  return productos
+    .filter((p) => p.data.activo)
+    .map((p) => ({ params: { slug: p.id }, props: { producto: p } }));
+}
+
+const { producto } = Astro.props;
+const { data } = producto;
+
+const formatPrice = (precio: number) =>
+  precio > 0 ? `$${precio.toLocaleString('es-CO')}` : 'Consultar precio';
+
+const badgeLabels: Record<string, string> = {
+  destacado:       'Destacado',
+  nuevo:           'Nuevo',
+  favoritoClientas: 'Favorito',
+  ultimasUnidades: 'Últimas unidades',
+};
+const badgeClasses: Record<string, string> = {
+  destacado:       'badge--destacado',
+  nuevo:           'badge--nuevo',
+  favoritoClientas: 'badge--favorito',
+  ultimasUnidades: 'badge--ultimas',
+};
+
+const catNombres = data.categorias
+  .map((slug) => categorias.find((c) => c.slug === slug)?.nombre ?? slug)
+  .join(' · ');
+
+// Productos relacionados: misma categoría, excluyendo el actual (máx. 4)
+const todosActivos = (await getCollection('productos')).filter((p) => p.data.activo);
+const relacionados = todosActivos
+  .filter((p) => p.id !== producto.id && p.data.categorias.some((c) => data.categorias.includes(c)))
+  .slice(0, 4);
+
+const waBase = `https://wa.me/${WHATSAPP_NUMBER}?text=`;
+const waMsgSinTalla = encodeURIComponent(whatsappMessages.producto(data.nombre, data.referencia));
+---
+
+<Layout
+  title={`${data.nombre} | MALEJA Calzado`}
+  description={data.descripcionCorta ?? `${data.nombre} — calzado femenino de calidad. Ref. ${data.referencia}. Consulta por WhatsApp.`}
+  ogImage={data.imagenPrincipal}
+  ogType="product"
+>
+  <main id="main-content">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb container" aria-label="Ruta de navegación">
+      <a href="/productos">Catálogo</a>
+      <span aria-hidden="true">›</span>
+      <span>{data.nombre}</span>
+    </nav>
+
+    <!-- Detalle de producto -->
+    <section class="product-detail container">
+
+      <!-- Imagen -->
+      <div class="product-detail__gallery">
+        <div class="product-detail__main-img">
+          <img
+            src={data.imagenPrincipal}
+            alt={data.descripcionCorta ?? data.nombre}
+            width="640"
+            height="760"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="product-detail__info">
+
+        {data.badges.length > 0 && (
+          <div class="product-detail__badges">
+            {data.badges.map((b) => (
+              <span class={`badge ${badgeClasses[b] ?? ''}`}>{badgeLabels[b] ?? b}</span>
+            ))}
+          </div>
+        )}
+
+        <p class="eyebrow">{catNombres}</p>
+        <h1 class="product-detail__name">{data.nombre}</h1>
+        <p class="product-detail__ref">Ref. {data.referencia}</p>
+        <p class="product-detail__price">{formatPrice(data.precio)}</p>
+
+        {(data.descripcionLarga ?? data.descripcionCorta) && (
+          <p class="product-detail__desc">
+            {data.descripcionLarga ?? data.descripcionCorta}
+          </p>
+        )}
+
+        <!-- Selector de talla -->
+        {data.tallasDisponibles.length > 0 && (
+          <div class="size-selector">
+            <p class="size-selector__label">Selecciona tu talla</p>
+            <div class="size-selector__grid" role="group" aria-label="Tallas disponibles">
+              {data.tallasDisponibles.map((talla) => (
+                <button
+                  class="size-btn"
+                  data-talla={talla}
+                  type="button"
+                  aria-pressed="false"
+                >
+                  {talla}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- CTA WhatsApp -->
+        <div class="product-detail__cta">
+          <a
+            id="wa-link"
+            class="btn btn--whatsapp btn--lg"
+            href={`${waBase}${waMsgSinTalla}`}
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/icons/whatsapp.png" alt="" width="20" height="20" aria-hidden="true" />
+            Consultar por WhatsApp
+          </a>
+          <p class="product-detail__hint" id="wa-hint">Elige una talla para incluirla en el mensaje</p>
+        </div>
+
+        <a href="/productos" class="product-detail__back">← Volver al catálogo</a>
+      </div>
+    </section>
+
+    <!-- Productos relacionados -->
+    {relacionados.length > 0 && (
+      <section class="section">
+        <div class="container">
+          <div class="section__header">
+            <p class="eyebrow">También te puede gustar</p>
+            <h2>Modelos relacionados</h2>
+          </div>
+          <div class="product-grid product-grid--related">
+            {relacionados.map((rel) => (
+              <article class="product-card">
+                <a href={`/productos/${rel.id}`} class="product-card__media" aria-label={`Ver ${rel.data.nombre}`}>
+                  <img
+                    src={rel.data.imagenPrincipal}
+                    alt={rel.data.descripcionCorta ?? rel.data.nombre}
+                    width="640"
+                    height="760"
+                    loading="lazy"
+                  />
+                </a>
+                <div class="product-card__body">
+                  <p class="product-card__ref">Ref. {rel.data.referencia}</p>
+                  <h3>{rel.data.nombre}</h3>
+                  <p class="product-card__price">{formatPrice(rel.data.precio)}</p>
+                  <a
+                    class="btn btn--outline btn--sm"
+                    href={`/productos/${rel.id}`}
+                  >
+                    Ver producto
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+  </main>
+</Layout>
+
+<script define:vars={{ waBase, nombre: data.nombre, referencia: data.referencia }}>
+  const sizeBtns = document.querySelectorAll('.size-btn');
+  const waLink = document.getElementById('wa-link');
+  const waHint = document.getElementById('wa-hint');
+
+  let selectedTalla = '';
+
+  function buildWaUrl(talla) {
+    const msg = talla
+      ? `Hola Maleja, me interesa ${nombre}, ref ${referencia}, talla ${talla}`
+      : `Hola Maleja, me interesa ${nombre}, ref ${referencia}`;
+    return `${waBase}${encodeURIComponent(msg)}`;
+  }
+
+  sizeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const talla = btn.dataset.talla;
+
+      if (selectedTalla === talla) {
+        // deseleccionar
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-pressed', 'false');
+        selectedTalla = '';
+      } else {
+        sizeBtns.forEach((b) => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+        selectedTalla = talla;
+      }
+
+      waLink.href = buildWaUrl(selectedTalla);
+      waHint.hidden = !!selectedTalla;
+    });
+  });
+</script>

@@ -37,6 +37,15 @@ img, video {
   display: block;
 }
 
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.icon--current {
+  filter: brightness(0) saturate(100%) invert(1);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -181,6 +190,7 @@ button {
   place-items: center;
   border-radius: var(--radius-full);
   background-color: #25D366;
+  color: #fff;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -788,6 +798,10 @@ button {
   border-radius: var(--radius-md);
 }
 
+.contact-card__icon .icon--current {
+  filter: brightness(0) saturate(100%) invert(64%) sepia(83%) saturate(445%) hue-rotate(88deg) brightness(92%) contrast(92%);
+}
+
 .contact-card h3 {
   font-family: var(--font-serif);
   font-size: var(--text-xl);
@@ -944,6 +958,171 @@ button {
 }
 
 /* =====================
+   PRODUCTO INDIVIDUAL
+   ===================== */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-12);
+  align-items: start;
+  padding-bottom: var(--space-16);
+}
+
+.product-detail__main-img {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--color-bg-alt);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-detail__main-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-detail__info {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  padding-top: var(--space-4);
+}
+
+.product-detail__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.product-detail__name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.product-detail__ref {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.product-detail__price {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.product-detail__desc {
+  color: var(--color-text-soft);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  border-top: 1px solid var(--color-border-soft);
+  padding-top: var(--space-4);
+}
+
+.size-selector {
+  border-top: 1px solid var(--color-border-soft);
+  padding-top: var(--space-4);
+}
+
+.size-selector__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-3);
+}
+
+.size-selector__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.size-btn {
+  min-width: 48px;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-soft);
+  transition: all var(--transition-fast);
+}
+
+.size-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.size-btn.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.product-detail__cta {
+  display: grid;
+  gap: var(--space-2);
+  border-top: 1px solid var(--color-border-soft);
+  padding-top: var(--space-4);
+}
+
+.product-detail__cta .btn {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.product-detail__hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.product-detail__back {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.product-detail__back:hover {
+  color: var(--color-primary);
+}
+
+.product-grid--related {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.product-card__actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* =====================
    RESPONSIVE — nosotras & contacto
    ===================== */
 
@@ -959,6 +1138,14 @@ button {
     width: 100%;
     max-width: 360px;
     justify-self: center;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid--related {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .filosofia-grid,
