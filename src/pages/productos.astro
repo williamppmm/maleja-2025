@@ -5,40 +5,66 @@ import { categorias, WHATSAPP_NUMBER, whatsappMessages } from '../data/categoria
 
 const productos = (await getCollection('productos'))
   .filter((producto) => producto.data.activo)
-  .sort((a, b) => a.data.referencia.localeCompare(b.data.referencia));
+  .sort((a, b) => {
+    if (a.data.destacado !== b.data.destacado) return a.data.destacado ? -1 : 1;
+    return a.data.referencia.localeCompare(b.data.referencia);
+  });
 
 const formatPrice = (precio: number) =>
   precio > 0 ? `$${precio.toLocaleString('es-CO')}` : 'Consultar precio';
+
+const total = productos.length;
 ---
 
 <Layout
-  title="Productos | MALEJA Calzado"
-  description="Catalogo de calzado femenino MALEJA. Consulta tallas, referencias y asesoria personalizada por WhatsApp."
+  title="Catálogo | MALEJA Calzado"
+  description="Catálogo de calzado femenino MALEJA. Consulta tallas, referencias y asesoría personalizada por WhatsApp."
 >
   <main id="main-content">
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Catalogo</p>
+        <p class="eyebrow">Catálogo</p>
         <h1>Modelos disponibles</h1>
-        <p>Explora la seleccion inicial y consultanos por WhatsApp para confirmar talla, precio y entrega.</p>
+        <p>Explora la selección y consúltanos por WhatsApp para confirmar talla, precio y entrega.</p>
       </div>
     </section>
 
     <section class="catalog-section">
       <div class="container catalog-layout">
-        <aside class="catalog-filter" aria-label="Categorias">
-          <h2>Categorias</h2>
-          <a href="/productos" class="catalog-filter__item is-active">Todos</a>
-          {categorias.map((categoria) => (
-            <a href={`/productos#${categoria.slug}`} class="catalog-filter__item">{categoria.nombre}</a>
+
+        <aside class="catalog-filter" aria-label="Filtros">
+          <h2>Categorías</h2>
+          <button class="catalog-filter__item is-active" data-filter="*">Todos</button>
+          {categorias.map((cat) => (
+            <button class="catalog-filter__item" data-filter={cat.slug}>{cat.nombre}</button>
           ))}
         </aside>
 
         <div class="catalog-content">
-          <div class="catalog-count">{productos.length} productos cargados</div>
-          <div class="product-grid product-grid--catalog">
+          <div class="catalog-toolbar">
+            <p class="catalog-count">
+              <span id="catalog-visible">{total}</span> de {total} productos
+            </p>
+            <div class="catalog-search">
+              <img src="/icons/search.svg" alt="" width="16" height="16" aria-hidden="true" class="catalog-search__icon" />
+              <input
+                id="catalog-search-input"
+                type="search"
+                placeholder="Buscar por nombre o referencia…"
+                aria-label="Buscar productos"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <div class="product-grid product-grid--catalog" id="catalog-grid">
             {productos.map((producto) => (
-              <article class="product-card" id={producto.data.categorias[0]}>
+              <article
+                class="product-card"
+                data-categorias={producto.data.categorias.join(' ')}
+                data-nombre={producto.data.nombre.toLowerCase()}
+                data-referencia={producto.data.referencia.toLowerCase()}
+              >
                 <div class="product-card__media">
                   <img
                     src={producto.data.imagenPrincipal}
@@ -67,8 +93,60 @@ const formatPrice = (precio: number) =>
               </article>
             ))}
           </div>
+
+          <p class="catalog-empty" id="catalog-empty" hidden>
+            No hay productos que coincidan con tu búsqueda.
+          </p>
         </div>
+
       </div>
     </section>
   </main>
 </Layout>
+
+<script>
+  const grid = document.getElementById('catalog-grid')!;
+  const cards = Array.from(grid.querySelectorAll<HTMLElement>('.product-card'));
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const searchInput = document.getElementById('catalog-search-input') as HTMLInputElement;
+  const countEl = document.getElementById('catalog-visible')!;
+  const emptyEl = document.getElementById('catalog-empty')!;
+
+  let activeFilter = '*';
+  let searchQuery = '';
+
+  function apply() {
+    let visible = 0;
+    for (const card of cards) {
+      const cats = card.dataset.categorias ?? '';
+      const nombre = card.dataset.nombre ?? '';
+      const ref = card.dataset.referencia ?? '';
+
+      const matchesCat = activeFilter === '*' || cats.split(' ').includes(activeFilter);
+      const matchesSearch =
+        searchQuery === '' ||
+        nombre.includes(searchQuery) ||
+        ref.includes(searchQuery);
+
+      const show = matchesCat && matchesSearch;
+      card.hidden = !show;
+      if (show) visible++;
+    }
+    countEl.textContent = String(visible);
+    emptyEl.hidden = visible > 0;
+  }
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      activeFilter = btn.dataset.filter ?? '*';
+      apply();
+    });
+  });
+
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value.trim().toLowerCase();
+    apply();
+  });
+</script>
