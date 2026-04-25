@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { WHATSAPP_NUMBER, whatsappMessages } from '../data/categorias';
+
+const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.contacto)}`;
+---
+
+<Layout
+  title="Contacto | MALEJA Calzado"
+  description="Contacta a MALEJA Calzado por WhatsApp para asesoria personalizada, tallas, precios y entregas en Cali."
+>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Contacto</p>
+        <h1>Hablemos por WhatsApp y encontremos tu par ideal.</h1>
+        <p>
+          Consultanos por tallas, precios y disponibilidad. La asesoria personalizada
+          es parte central de la experiencia MALEJA.
+        </p>
+        <div class="hero-home__actions">
+          <a class="btn btn--whatsapp btn--lg" href={whatsappUrl} target="_blank" rel="noopener">
+            Chatear por WhatsApp
+          </a>
+          <a class="btn btn--outline btn--lg" href="mailto:ventas@malejacalzado.com">
+            Enviar correo
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

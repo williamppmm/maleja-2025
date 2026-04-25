@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { categorias, WHATSAPP_NUMBER, whatsappMessages } from '../data/categorias';
+
+const productos = (await getCollection('productos'))
+  .filter((producto) => producto.data.activo)
+  .sort((a, b) => a.data.referencia.localeCompare(b.data.referencia));
+
+const formatPrice = (precio: number) =>
+  precio > 0 ? `$${precio.toLocaleString('es-CO')}` : 'Consultar precio';
+---
+
+<Layout
+  title="Productos | MALEJA Calzado"
+  description="Catalogo de calzado femenino MALEJA. Consulta tallas, referencias y asesoria personalizada por WhatsApp."
+>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Catalogo</p>
+        <h1>Modelos disponibles</h1>
+        <p>Explora la seleccion inicial y consultanos por WhatsApp para confirmar talla, precio y entrega.</p>
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <div class="container catalog-layout">
+        <aside class="catalog-filter" aria-label="Categorias">
+          <h2>Categorias</h2>
+          <a href="/productos" class="catalog-filter__item is-active">Todos</a>
+          {categorias.map((categoria) => (
+            <a href={`/productos#${categoria.slug}`} class="catalog-filter__item">{categoria.nombre}</a>
+          ))}
+        </aside>
+
+        <div class="catalog-content">
+          <div class="catalog-count">{productos.length} productos cargados</div>
+          <div class="product-grid product-grid--catalog">
+            {productos.map((producto) => (
+              <article class="product-card" id={producto.data.categorias[0]}>
+                <div class="product-card__media">
+                  <img
+                    src={producto.data.imagenPrincipal}
+                    alt={producto.data.descripcionCorta ?? producto.data.nombre}
+                    width="640"
+                    height="760"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__ref">Ref. {producto.data.referencia}</p>
+                  <h3>{producto.data.nombre}</h3>
+                  <p class="product-card__desc">{producto.data.descripcionCorta}</p>
+                  <p class="product-card__price">{formatPrice(producto.data.precio)}</p>
+                  <a
+                    class="btn btn--primary btn--sm"
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      whatsappMessages.producto(producto.data.nombre, producto.data.referencia),
+                    )}`}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

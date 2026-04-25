@@ -1,9 +1,98 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { WHATSAPP_NUMBER, whatsappMessages } from '../data/categorias';
+
+const productos = (await getCollection('productos'))
+  .filter((producto) => producto.data.activo)
+  .sort((a, b) => {
+    if (a.data.destacado !== b.data.destacado) return a.data.destacado ? -1 : 1;
+    return a.data.referencia.localeCompare(b.data.referencia);
+  });
+
+const destacados = productos.slice(0, 4);
+const whatsappHome = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.home)}`;
+
+const formatPrice = (precio: number) =>
+  precio > 0 ? `$${precio.toLocaleString('es-CO')}` : 'Consultar precio';
 ---
 
 <Layout title="MALEJA Calzado | Calzado femenino en Cali">
   <main id="main-content">
-    <p>Home — en construcción (Fase 4)</p>
+    <section class="hero-home">
+      <div class="container hero-home__grid">
+        <div class="hero-home__content">
+          <p class="eyebrow">Desde Cali</p>
+          <h1>Calzado femenino para caminar con seguridad y estilo.</h1>
+          <p>
+            Modelos seleccionados con calidad, comodidad y una atencion cercana por WhatsApp.
+            Te acompanamos a elegir el par que va con tu ritmo.
+          </p>
+          <div class="hero-home__actions">
+            <a class="btn btn--primary btn--lg" href="/productos">Ver productos</a>
+            <a class="btn btn--whatsapp btn--lg" href={whatsappHome} target="_blank" rel="noopener">
+              Pedir asesoria
+            </a>
+          </div>
+        </div>
+        <picture class="hero-home__media">
+          <img src="/images/banners/banner.png" alt="Calzado femenino MALEJA" width="900" height="1040" />
+        </picture>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section__header">
+        <p class="eyebrow">Seleccion inicial</p>
+        <h2>Modelos disponibles</h2>
+        <p>Estos son algunos de los productos cargados para la nueva vitrina.</p>
+      </div>
+      <div class="container product-grid">
+        {destacados.map((producto) => (
+          <article class="product-card">
+            <a href="/productos" class="product-card__media" aria-label={`Ver ${producto.data.nombre}`}>
+              <img
+                src={producto.data.imagenPrincipal}
+                alt={producto.data.descripcionCorta ?? producto.data.nombre}
+                width="640"
+                height="760"
+                loading="lazy"
+              />
+            </a>
+            <div class="product-card__body">
+              <p class="product-card__ref">Ref. {producto.data.referencia}</p>
+              <h3>{producto.data.nombre}</h3>
+              <p class="product-card__price">{formatPrice(producto.data.precio)}</p>
+              <a
+                class="btn btn--outline btn--sm"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                  whatsappMessages.producto(producto.data.nombre, producto.data.referencia),
+                )}`}
+                target="_blank"
+                rel="noopener"
+              >
+                Consultar
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="section__cta">
+        <a class="btn btn--secondary" href="/productos">Ver catalogo completo</a>
+      </div>
+    </section>
+
+    <section class="brand-story">
+      <div class="container brand-story__inner">
+        <div>
+          <p class="eyebrow">MALEJA Calzado</p>
+          <h2>Una vitrina calida, femenina y hecha para conversar.</h2>
+        </div>
+        <p>
+          Esta version esta pensada para mostrar los modelos con claridad y llevar cada
+          consulta a WhatsApp, donde la asesoria personalizada sigue siendo el centro.
+        </p>
+      </div>
+    </section>
   </main>
 </Layout>

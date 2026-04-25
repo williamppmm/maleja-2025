@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '../styles/components/buttons.css';
 import '../styles/components/badges.css';
+import { WHATSAPP_NUMBER, whatsappMessages } from '../data/categorias';
 
 interface Props {
   title: string;
@@ -22,6 +23,7 @@ const {
 const siteUrl = 'https://calzadomaleja.com';
 const canonical = canonicalUrl ?? `${siteUrl}${Astro.url.pathname}`;
 const fullTitle = title.includes('MALEJA') ? title : `${title} | MALEJA Calzado`;
+const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.catalogo)}`;
 ---
 
 <!doctype html>
@@ -56,6 +58,38 @@ const fullTitle = title.includes('MALEJA') ? title : `${title} | MALEJA Calzado`
   </head>
   <body>
     <a href="#main-content" class="skip-link">Saltar al contenido</a>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="/" class="site-header__brand" aria-label="Inicio MALEJA Calzado">
+          <img src="/images/logos/logo.svg" alt="MALEJA Calzado" width="148" height="52" />
+        </a>
+        <nav class="site-nav" aria-label="Navegación principal">
+          <a href="/">Inicio</a>
+          <a href="/productos">Productos</a>
+          <a href="/nosotras">Nosotras</a>
+          <a href="/contacto">Contacto</a>
+        </nav>
+        <a class="btn btn--primary site-header__cta" href={whatsappUrl} target="_blank" rel="noopener">
+          WhatsApp
+        </a>
+      </div>
+    </header>
     <slot />
+    <a class="whatsapp-float" href={whatsappUrl} target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+      <img src="/icons/whatsapp.png" alt="" width="24" height="24" />
+    </a>
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div>
+          <img src="/images/logos/logo.svg" alt="MALEJA Calzado" width="136" height="48" />
+          <p>Calzado femenino seleccionado con amor, calidad y flow caleño.</p>
+        </div>
+        <div class="site-footer__links">
+          <a href="mailto:ventas@malejacalzado.com">ventas@malejacalzado.com</a>
+          <a href={whatsappUrl} target="_blank" rel="noopener">+57 317 270 3742</a>
+          <a href="https://www.instagram.com/malejacalzado/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
