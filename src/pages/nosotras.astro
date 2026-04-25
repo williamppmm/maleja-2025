@@ -1,21 +1,173 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { WHATSAPP_NUMBER, whatsappMessages } from '../data/categorias';
+
+const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.contacto)}`;
 ---
 
 <Layout
   title="Nosotras | MALEJA Calzado"
-  description="Conoce la historia de MALEJA Calzado, una marca caleña de calzado femenino con atencion cercana y seleccion de calidad."
+  description="Conoce la historia de María Alejandra Pérez, la mujer detrás de MALEJA Calzado. Emprendedora caleña con pasión por el calzado femenino de calidad."
 >
   <main id="main-content">
+
+    <!-- Hero -->
     <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Nosotras</p>
-        <h1>Una marca cercana, femenina y con raiz caleña.</h1>
-        <p>
-          Esta pagina queda lista como base para contar la historia de Maria Alejandra,
-          su filosofia de asesoria y la llegada de MALEJA a Cali.
-        </p>
+      <div class="container page-hero__inner">
+        <div class="page-hero__text">
+          <p class="eyebrow">Nuestra historia</p>
+          <h1>Hola, soy María Alejandra</h1>
+          <p>La mujer detrás de MALEJA Calzado. Emprendedora con pasión por el calzado femenino y una atención tan cercana que parece de amiga.</p>
+        </div>
+        <picture class="page-hero__media">
+          <img
+            src="/images/nosotras/maleja-hero.jpg"
+            alt="María Alejandra Pérez — fundadora de MALEJA Calzado"
+            width="480"
+            height="600"
+            loading="eager"
+          />
+        </picture>
       </div>
     </section>
+
+    <!-- Mi historia -->
+    <section class="section">
+      <div class="container historia-grid">
+        <div class="historia-text">
+          <p class="eyebrow">Mi historia</p>
+          <h2>Una pasión que se convirtió en marca</h2>
+          <hr class="divider" />
+          <p>
+            Mi pasión nació de una simple verdad: cada mujer merece encontrar ese calzado
+            perfecto que la haga sentir segura, cómoda y hermosa.
+          </p>
+          <p>
+            A lo largo de mi trayectoria he trabajado de cerca con la moda y el calzado
+            femenino, aprendiendo sobre estilos que evolucionan constantemente y, sobre todo,
+            sobre lo que realmente importa: la calidad. Entiendo que cada inversión debe valer
+            la pena, por eso me he especializado en seleccionar únicamente lo mejor para
+            mis clientas.
+          </p>
+          <p>
+            Trabajo con talleres y marcas que mantienen los más altos estándares. Cada pieza
+            de nuestro catálogo es cuidadosamente elegida pensando en mujeres que valoran
+            tanto el estilo como la durabilidad.
+          </p>
+        </div>
+        <div class="historia-visual">
+          <div class="historia-card">
+            <span class="historia-card__number">+10</span>
+            <p>años rodeada del mundo del calzado femenino</p>
+          </div>
+          <div class="historia-card historia-card--accent">
+            <span class="historia-card__number">14</span>
+            <p>modelos seleccionados con cuidado en el catálogo actual</p>
+          </div>
+          <div class="historia-card">
+            <span class="historia-card__number">100%</span>
+            <p>asesoría personalizada por WhatsApp, sin intermediarios</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Llegando a Cali -->
+    <section class="section section--alt cali-section">
+      <div class="container cali-grid">
+        <div class="cali-text">
+          <p class="eyebrow">Desde 2025</p>
+          <h2>Llegando a Cali con todo el flow</h2>
+          <hr class="divider" />
+          <p>
+            Cali es nuestro nuevo hogar. Nos enamoramos de esta ciudad, de su gente,
+            de su energía y ese argot único que las caracteriza.
+          </p>
+          <p>
+            Sabemos que las mujeres de Cali tienen un estilo particular — esa actitud y
+            ese flow que las hace únicas. Por eso, cada pieza del catálogo se selecciona
+            pensando en ustedes: <strong>calzado hermoso, con la calidad, comodidad y
+            durabilidad que merecen.</strong>
+          </p>
+        </div>
+        <div class="cali-highlight">
+          <div class="highlight-card">
+            <h3>¡Cali-dad!</h3>
+            <p>
+              Seleccionamos cada diseño bajo estrictos estándares de calidad y comodidad.
+              Trabajamos solo con marcas que garantizan los mejores diseños para mujeres
+              que saben lo que quieren.
+            </p>
+            <a class="btn btn--primary" href="/productos">Ver catálogo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filosofía -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">Lo que nos mueve</p>
+          <h2>Mi filosofía</h2>
+        </div>
+        <div class="filosofia-grid">
+          <div class="filosofia-card">
+            <div class="filosofia-card__icon" aria-hidden="true">💬</div>
+            <h3>Conexión personal</h3>
+            <p>
+              Me gusta conversar y escuchar. Cada mujer es única y merece una recomendación
+              honesta que responda a su estilo, su ritmo y lo que realmente necesita.
+            </p>
+          </div>
+          <div class="filosofia-card">
+            <div class="filosofia-card__icon" aria-hidden="true">✨</div>
+            <h3>Calidad ante todo</h3>
+            <p>
+              Solo incluyo pares que pasan mi filtro: horma cómoda, materiales confiables,
+              buen acabado y presencia. Cada paso debe sentirse suave y seguro.
+            </p>
+          </div>
+          <div class="filosofia-card">
+            <div class="filosofia-card__icon" aria-hidden="true">🤝</div>
+            <h3>Asesoría completa</h3>
+            <p>
+              No es solo vender: te acompaño a elegir el par adecuado, resuelvo dudas
+              de tallas, uso y cuidado. Busco que quedes tranquila con tu compra.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Futuro -->
+    <section class="section section--alt">
+      <div class="container futuro-cta">
+        <div class="futuro-cta__text">
+          <p class="eyebrow">El futuro</p>
+          <h2>Construyendo juntas</h2>
+          <hr class="divider" />
+          <p>
+            MALEJA Calzado está creciendo, y con el apoyo de las redes y las recomendaciones
+            de clientas satisfechas, seguimos expandiendo la comunidad.
+          </p>
+          <p>
+            Mi sueño es llegar no solo a toda Cali, sino a toda Colombia, llevando calidad,
+            estilo y esa atención personalizada que me caracteriza.
+          </p>
+        </div>
+        <div class="futuro-cta__actions">
+          <h3>¿Lista para encontrar tu par perfecto?</h3>
+          <p>Escríbeme y juntas encontremos ese calzado que va contigo.</p>
+          <div class="futuro-cta__buttons">
+            <a class="btn btn--primary btn--lg" href={whatsappUrl} target="_blank" rel="noopener">
+              Conversemos por WhatsApp
+            </a>
+            <a class="btn btn--outline btn--lg" href="/productos">Ver catálogo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 </Layout>
