@@ -19,3 +19,10 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Vestigios PHP (estructura legacy, no pertenecen al proyecto Astro)
+admin/
+assets/
+config/
+includes/
+scripts/

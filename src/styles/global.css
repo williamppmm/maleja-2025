@@ -641,16 +641,6 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
-.historia-card--accent {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-}
-
-.historia-card--accent p {
-  color: rgba(255 255 255 / 0.85);
-}
-
 .historia-card__number {
   display: block;
   font-family: var(--font-serif);
@@ -661,14 +651,24 @@ button {
   margin-bottom: var(--space-2);
 }
 
-.historia-card--accent .historia-card__number {
-  color: #fff;
-}
-
 .historia-card p {
   font-size: var(--text-sm);
   color: var(--color-text-soft);
   line-height: 1.5;
+}
+
+.historia-card--accent {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.historia-card--accent p {
+  color: rgba(255 255 255 / 0.85);
+}
+
+.historia-card--accent .historia-card__number {
+  color: #fff;
 }
 
 .cali-grid {
@@ -726,7 +726,13 @@ button {
 }
 
 .filosofia-card__icon {
-  font-size: 2rem;
+  width: 56px;
+  height: 56px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: var(--space-4);
 }
 
