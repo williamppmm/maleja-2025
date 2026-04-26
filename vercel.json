@@ -7,7 +7,8 @@
     { "source": "/admin/:path*",  "destination": "/",           "permanent": false },
     { "source": "/config/:path*", "destination": "/",           "permanent": false },
     { "source": "/includes/:path*","destination": "/",          "permanent": false },
-    { "source": "/scripts/:path*","destination": "/",           "permanent": false }
+    { "source": "/scripts/:path*","destination": "/",           "permanent": false },
+            { "source": "/:path*.php",     "destination": "/",          "permanent": true  }
   ],
   "headers": [
     {
