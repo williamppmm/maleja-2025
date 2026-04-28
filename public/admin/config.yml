@@ -1,0 +1,100 @@
+backend:
+  name: github
+  repo: williamppmm/maleja-2025
+  branch: main
+  auth_type: pkce
+  app_id: Ov23liUgqZkkLuQoCtor
+
+media_folder: public/images/productos
+public_folder: /images/productos
+
+locale: es
+
+collections:
+  - name: productos
+    label: Productos
+    label_singular: Producto
+    folder: src/content/productos
+    create: true
+    delete: true
+    format: json
+    slug: "{{slug}}"
+    fields:
+      - label: Nombre
+        name: nombre
+        widget: string
+
+      - label: Referencia
+        name: referencia
+        widget: string
+
+      - label: Precio
+        name: precio
+        widget: number
+        default: 0
+        hint: "Dejar en 0 para mostrar 'Consultar precio'"
+
+      - label: Descripción corta
+        name: descripcionCorta
+        widget: string
+        required: false
+
+      - label: Descripción larga
+        name: descripcionLarga
+        widget: text
+        required: false
+
+      - label: Imagen principal
+        name: imagenPrincipal
+        widget: image
+
+      - label: Imágenes adicionales
+        name: imagenes
+        widget: list
+        required: false
+        field: { label: Imagen, name: imagen, widget: image }
+
+      - label: Activo
+        name: activo
+        widget: boolean
+        default: true
+        hint: "Desactivar para ocultar el producto del catálogo"
+
+      - label: Destacado
+        name: destacado
+        widget: boolean
+        default: false
+        hint: "Los destacados aparecen primero en el catálogo y en el homepage"
+
+      - label: Orden destacado
+        name: ordenDestacado
+        widget: number
+        default: 0
+        required: false
+
+      - label: Categorías
+        name: categorias
+        widget: select
+        multiple: true
+        options:
+          - { label: Sandalia, value: sandalia }
+          - { label: Tacón, value: tacon }
+          - { label: Plataforma, value: plataforma }
+          - { label: Deportiva, value: deportiva }
+          - { label: Canoa / Suela confort, value: canoa }
+
+      - label: Tallas disponibles
+        name: tallasDisponibles
+        widget: select
+        multiple: true
+        options: ["35", "36", "37", "38", "39", "40", "41"]
+
+      - label: Badges
+        name: badges
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: Destacado, value: destacado }
+          - { label: Nuevo, value: nuevo }
+          - { label: Oferta, value: oferta }
