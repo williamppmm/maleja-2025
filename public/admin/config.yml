@@ -2,8 +2,7 @@ backend:
   name: github
   repo: williamppmm/maleja-2025
   branch: main
-  auth_type: pkce
-  app_id: Ov23liUgqZkkLuQoCtor
+  base_url: https://netlify-cms-github-oauth-provider-eight.vercel.app
 
 media_folder: public/images/productos
 public_folder: /images/productos
