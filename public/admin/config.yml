@@ -7,8 +7,6 @@ backend:
 media_folder: public/images/productos
 public_folder: /images/productos
 
-locale: es
-
 collections:
   - name: productos
     label: Productos
