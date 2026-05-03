@@ -5,11 +5,24 @@
   "descripcionCorta": "Sandalia plana color café con tiras nervadas y adorno dorado.",
   "descripcionLarga": "Sandalia plana en color café oscuro con diseño de tiras nervadas y aro dorado como adorno central. La textura plisada aporta volumen y carácter a un diseño único. Ideal para quien busca algo diferente sin renunciar a la comodidad.",
   "imagenPrincipal": "/images/productos/IMG_6242.webp",
-  "imagenes": ["/images/productos/IMG_6242.webp"],
-  "destacado": false,
-  "ordenDestacado": 0,
+  "imagenes": [
+    "/images/productos/IMG_6242.webp"
+  ],
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
-  "badges": ["nuevo"]
+  "destacado": true,
+  "ordenDestacado": 0,
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
+  "badges": [
+    "nuevo"
+  ]
 }
