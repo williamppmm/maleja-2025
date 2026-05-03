@@ -5,11 +5,24 @@
   "descripcionCorta": "Sandalia plana negra con aplique circular dorado.",
   "descripcionLarga": "Sandalia plana de tira ancha en cuero negro con llamativo aplique circular dorado. Diseño minimalista y sofisticado que eleva cualquier look — desde un jean casual hasta un vestido de noche. Materiales de primera calidad para una pisada cómoda y segura.",
   "imagenPrincipal": "/images/productos/IMG_6238.webp",
-  "imagenes": ["/images/productos/IMG_6238.webp"],
-  "destacado": false,
-  "ordenDestacado": 0,
+  "imagenes": [
+    "/images/productos/IMG_6238.webp"
+  ],
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
-  "badges": ["nuevo"]
+  "destacado": true,
+  "ordenDestacado": 0,
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
+  "badges": [
+    "nuevo"
+  ]
 }
