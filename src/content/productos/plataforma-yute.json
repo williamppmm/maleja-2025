@@ -5,11 +5,25 @@
   "descripcionCorta": "Plataforma tipo yute.",
   "descripcionLarga": "Plataforma en material tipo yute, tendencia y naturalidad en un solo par. Un diseño que eleva cualquier look con altura y comodidad. Perfecto para el verano y el calor caleño.",
   "imagenPrincipal": "/images/productos/_JAP8341.webp",
-  "imagenes": ["/images/productos/_JAP8341.webp"],
-  "destacado": true,
-  "ordenDestacado": 4,
+  "imagenes": [
+    "/images/productos/_JAP8341.webp"
+  ],
   "activo": true,
-  "categorias": ["plataforma"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
-  "badges": ["destacado", "nuevo"]
+  "destacado": false,
+  "ordenDestacado": 4,
+  "categorias": [
+    "plataforma"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
+  "badges": [
+    "destacado",
+    "nuevo"
+  ]
 }
