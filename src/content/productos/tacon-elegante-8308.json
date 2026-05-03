@@ -5,11 +5,24 @@
   "descripcionCorta": "Tacón cuero elegante color negro.",
   "descripcionLarga": "Tacón en cuero genuino color negro. Clásico, refinado y atemporal. El par que toda mujer necesita en su clóset para cualquier ocasión especial.",
   "imagenPrincipal": "/images/productos/_JAP8308.webp",
-  "imagenes": ["/images/productos/_JAP8308.webp"],
-  "destacado": true,
-  "ordenDestacado": 2,
+  "imagenes": [
+    "/images/productos/_JAP8308.webp"
+  ],
   "activo": true,
-  "categorias": ["tacon"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
-  "badges": ["destacado"]
+  "destacado": false,
+  "ordenDestacado": 2,
+  "categorias": [
+    "tacon"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
+  "badges": [
+    "destacado"
+  ]
 }
