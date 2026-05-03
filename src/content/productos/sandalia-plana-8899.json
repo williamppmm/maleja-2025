@@ -1,0 +1,15 @@
+{
+  "nombre": "Sandalia Plana Multitira",
+  "referencia": "IMG8899",
+  "precio": 0,
+  "descripcionCorta": "Sandalia plana beige con múltiples tiras y aplique dorado.",
+  "descripcionLarga": "Sandalia plana en tono beige marfil con diseño de múltiples tiras diagonales y aplique dorado en espiral. El beige es el color más versátil de la temporada — combina con absolutamente todo. Un modelo delicado, femenino y con ese detalle dorado que la hace especial.",
+  "imagenPrincipal": "/images/productos/IMG_8899.webp",
+  "imagenes": ["/images/productos/IMG_8899.webp"],
+  "destacado": false,
+  "ordenDestacado": 0,
+  "activo": true,
+  "categorias": ["sandalia"],
+  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "badges": ["nuevo"]
+}
