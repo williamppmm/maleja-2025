@@ -20,7 +20,7 @@ const {
   canonicalUrl,
 } = Astro.props;
 
-const siteUrl = 'https://malejacalzado.com';
+const siteUrl = 'https://www.malejacalzado.com';
 const canonical = canonicalUrl ?? `${siteUrl}${Astro.url.pathname}`;
 const fullTitle = title.includes('MALEJA') ? title : `${title} | MALEJA Calzado`;
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.catalogo)}`;
