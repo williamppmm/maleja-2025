@@ -14,7 +14,7 @@ const { producto } = Astro.props;
 const { data } = producto;
 
 const formatPrice = (precio: number) =>
-  precio > 0 ? `$${precio.toLocaleString('es-CO')}` : 'Consultar precio';
+  precio > 0 ? `$${precio.toLocaleString('es-CO')}` : 'Precio por WhatsApp';
 
 const badgeLabels: Record<string, string> = {
   destacado:       'Destacado',

@@ -29,7 +29,7 @@ collections:
         name: precio
         widget: number
         default: 0
-        hint: "Dejar en 0 para mostrar 'Consultar precio'"
+        hint: "Dejar en 0 para mostrar 'Precio por WhatsApp'"
 
       - label: Descripción corta
         name: descripcionCorta

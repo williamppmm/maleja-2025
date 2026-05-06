@@ -11,7 +11,7 @@ const productos = (await getCollection('productos'))
   });
 
 const formatPrice = (precio: number) =>
-  precio > 0 ? `$${precio.toLocaleString('es-CO')}` : 'Consultar precio';
+  precio > 0 ? `$${precio.toLocaleString('es-CO')}` : 'Precio por WhatsApp';
 
 const total = productos.length;
 ---
@@ -25,7 +25,7 @@ const total = productos.length;
       <div class="container">
         <p class="eyebrow">Catálogo</p>
         <h1>Modelos disponibles</h1>
-        <p>Explora la selección y consúltanos por WhatsApp para confirmar talla, precio y entrega.</p>
+        <p>Explora la selección y escríbeme por WhatsApp para confirmar talla, precio y entrega.</p>
       </div>
     </section>
 
