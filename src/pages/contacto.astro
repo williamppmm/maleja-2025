@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import JsonLd from '../components/JsonLd.astro';
 import { WHATSAPP_NUMBER, whatsappMessages } from '../data/categorias';
+import { BRAND_NAME, EMAIL, PHONE_DISPLAY, SITE_URL, localBusinessJsonLd } from '../data/seo';
 
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.contacto)}`;
 const faq = [
@@ -29,12 +31,43 @@ const faq = [
     a: 'Constantemente. Como selecciono de las últimas colecciones, siempre hay novedades. Sígueme en redes para no perderte nada.',
   },
 ];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: a,
+    },
+  })),
+};
+
+const contactPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': `${SITE_URL}/contacto/#webpage`,
+  url: `${SITE_URL}/contacto/`,
+  name: `Contacto | ${BRAND_NAME}`,
+  about: { '@id': `${SITE_URL}/#localbusiness` },
+  mainEntity: {
+    '@type': 'Organization',
+    name: BRAND_NAME,
+    telephone: PHONE_DISPLAY,
+    email: EMAIL,
+  },
+};
 ---
 
 <Layout
   title="Contacto | MALEJA Calzado"
   description="Contacta a MALEJA Calzado por WhatsApp para asesoría personalizada en calzado femenino. Tallas, precios y entregas en Cali."
 >
+  <JsonLd data={localBusinessJsonLd} />
+  <JsonLd data={contactPageJsonLd} />
+  <JsonLd data={faqJsonLd} />
   <main id="main-content">
 
     <!-- Hero -->

@@ -1,14 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import JsonLd from '../components/JsonLd.astro';
 import { WHATSAPP_NUMBER, whatsappMessages } from '../data/categorias';
+import { BRAND_NAME, INSTAGRAM_URL, SITE_URL } from '../data/seo';
 
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessages.contacto)}`;
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${SITE_URL}/nosotras/#maria-alejandra`,
+  name: 'María Alejandra Pérez',
+  jobTitle: `Fundadora de ${BRAND_NAME}`,
+  image: `${SITE_URL}/images/nosotras/maleja-hero.webp`,
+  url: `${SITE_URL}/nosotras/`,
+  worksFor: {
+    '@id': `${SITE_URL}/#localbusiness`,
+  },
+  sameAs: [INSTAGRAM_URL],
+};
 ---
 
 <Layout
   title="Nosotras | MALEJA Calzado"
   description="Conoce la historia de María Alejandra Pérez, la mujer detrás de MALEJA Calzado. Emprendedora caleña con pasión por el calzado femenino de calidad."
 >
+  <JsonLd data={personJsonLd} />
   <main id="main-content">
 
     <!-- Hero -->

@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import { getCollection } from 'astro:content';
 import { WHATSAPP_NUMBER, whatsappMessages, categorias } from '../../data/categorias';
+import { BRAND_NAME, SITE_URL } from '../../data/seo';
 
 export async function getStaticPaths() {
   const productos = await getCollection('productos');
@@ -41,6 +43,33 @@ const relacionados = todosActivos
 
 const waBase = `https://wa.me/${WHATSAPP_NUMBER}?text=`;
 const waMsgSinTalla = encodeURIComponent(whatsappMessages.producto(data.nombre, data.referencia));
+const productUrl = `${SITE_URL}/productos/${producto.id}/`;
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': `${productUrl}#product`,
+  name: data.nombre,
+  image: data.imagenes.length > 0
+    ? data.imagenes.map((imagen) => `${SITE_URL}${imagen}`)
+    : [`${SITE_URL}${data.imagenPrincipal}`],
+  description: data.descripcionLarga ?? data.descripcionCorta ?? `${data.nombre} de ${BRAND_NAME}.`,
+  sku: data.referencia,
+  brand: {
+    '@type': 'Brand',
+    name: BRAND_NAME,
+  },
+  category: catNombres,
+  url: productUrl,
+  offers: {
+    '@type': 'Offer',
+    url: productUrl,
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: {
+      '@id': `${SITE_URL}/#localbusiness`,
+    },
+  },
+};
 ---
 
 <Layout
@@ -49,6 +78,7 @@ const waMsgSinTalla = encodeURIComponent(whatsappMessages.producto(data.nombre, 
   ogImage={data.imagenPrincipal}
   ogType="product"
 >
+  <JsonLd data={productJsonLd} />
   <main id="main-content">
 
     <!-- Breadcrumb -->
