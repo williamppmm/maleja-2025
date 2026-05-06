@@ -1,15 +1,26 @@
 {
-  "nombre": "Sandalia Plana con Correa",
+  "nombre": "Sandalia Plana Negra con Correa",
   "referencia": "JAP8321",
   "precio": 0,
-  "descripcionCorta": "Sandalia plana con correa color negro.",
-  "descripcionLarga": "Sandalia plana negra con correa de sujeción. El diseño con correa garantiza mayor comodidad y seguridad en cada paso. Versátil para múltiples ocasiones.",
+  "descripcionCorta": "Una plana negra con correa de sujeción para caminar con más seguridad y comodidad.",
+  "descripcionLarga": "Sandalia plana negra con correa de sujeción, pensada para darte estabilidad en cada paso. Es una opción versátil para días activos, viajes cortos o planes donde necesitas sentir el pie firme sin perder una línea femenina.",
   "imagenPrincipal": "/images/productos/_JAP8321.webp",
-  "imagenes": ["/images/productos/_JAP8321.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8321.webp"
+  ],
   "destacado": false,
   "ordenDestacado": 0,
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "badges": []
 }

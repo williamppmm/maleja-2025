@@ -1,15 +1,27 @@
 {
-  "nombre": "Sandalia Deportiva",
+  "nombre": "Sandalia Deportiva Urbana",
   "referencia": "JAP8312",
   "precio": 0,
-  "descripcionCorta": "Sandalia deportiva.",
-  "descripcionLarga": "Sandalia deportiva con suela ergonómica y diseño funcional. Comodidad para el día activo sin sacrificar el estilo. Perfecta para Cali y su ritmo.",
+  "descripcionCorta": "Una sandalia cómoda para moverte todo el día, con diseño práctico y estilo casual.",
+  "descripcionLarga": "Sandalia deportiva con suela ergonómica para días activos, vueltas por la ciudad y planes donde necesitas caminar con seguridad. Una opción práctica dentro del catálogo de calzado femenino en Cali, pensada para comodidad sin perder estilo.",
   "imagenPrincipal": "/images/productos/_JAP8312.webp",
-  "imagenes": ["/images/productos/_JAP8312.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8312.webp"
+  ],
   "destacado": false,
   "ordenDestacado": 0,
   "activo": true,
-  "categorias": ["deportiva", "sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "categorias": [
+    "deportiva",
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "badges": []
 }

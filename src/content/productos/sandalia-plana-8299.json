@@ -1,15 +1,26 @@
 {
-  "nombre": "Sandalia Plana",
+  "nombre": "Sandalia Plana Negra Dorada",
   "referencia": "JAP8299",
   "precio": 0,
-  "descripcionCorta": "Sandalia elegante color negro apliques dorados.",
-  "descripcionLarga": "Sandalia plana en color negro con apliques dorados que le dan un toque glamoroso y elegante. Ideal para combinar con outfits casuales o de noche.",
+  "descripcionCorta": "Una sandalia plana negra con destellos dorados para sumar elegancia sin perder comodidad.",
+  "descripcionLarga": "Sandalia plana en negro con apliques dorados que iluminan el look sin exagerar. Funciona muy bien con jean, vestidos o prendas de noche suave; una opción cómoda para caminar con seguridad y seguir viéndote arreglada.",
   "imagenPrincipal": "/images/productos/_JAP8299.webp",
-  "imagenes": ["/images/productos/_JAP8299.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8299.webp"
+  ],
   "destacado": false,
   "ordenDestacado": 0,
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "badges": []
 }

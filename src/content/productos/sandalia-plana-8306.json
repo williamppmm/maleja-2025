@@ -1,15 +1,26 @@
 {
-  "nombre": "Sandalia Plana",
+  "nombre": "Sandalia Plana Negra Brillo Fino",
   "referencia": "JAP8306",
   "precio": 0,
-  "descripcionCorta": "Sandalia elegante color negro con brillantes.",
-  "descripcionLarga": "Sandalia plana negra con acabados en brillantes. Diseño elegante y moderno para quien quiere brillar con cada paso.",
+  "descripcionCorta": "Una sandalia plana negra con brillo delicado, pensada para looks modernos y fáciles de combinar.",
+  "descripcionLarga": "Sandalia plana negra con acabados brillantes y una presencia moderna. Es una alternativa cómoda para mujeres que buscan calzado femenino elegante en Cali, especialmente cuando el plan pide verse pulida sin sacrificar descanso.",
   "imagenPrincipal": "/images/productos/_JAP8306.webp",
-  "imagenes": ["/images/productos/_JAP8306.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8306.webp"
+  ],
   "destacado": false,
   "ordenDestacado": 0,
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "badges": []
 }

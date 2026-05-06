@@ -1,15 +1,30 @@
 {
-  "nombre": "Canoa Elegante",
+  "nombre": "Canoa Suela Confort Elegante",
   "referencia": "JAP8337",
   "precio": 0,
-  "descripcionCorta": "Canoa o Sandalia suela confort.",
-  "descripcionLarga": "Sandalia tipo canoa con suela de máximo confort. Diseño elegante que combina comodidad y estilo para el día a día. Una opción favorita de nuestras clientas.",
+  "descripcionCorta": "Una sandalia tipo canoa cómoda para días largos, con suela de confort y acabado elegante.",
+  "descripcionLarga": "Esta sandalia tipo canoa combina soporte, suavidad y presencia para acompañarte en días de mucho movimiento. La selecciono para mujeres que buscan calzado femenino cómodo en Cali sin renunciar a un acabado elegante y fácil de combinar.",
   "imagenPrincipal": "/images/productos/_JAP8337.webp",
-  "imagenes": ["/images/productos/_JAP8337.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8337.webp"
+  ],
   "destacado": true,
   "ordenDestacado": 3,
   "activo": true,
-  "categorias": ["canoa", "sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
-  "badges": ["destacado", "favoritoClientas"]
+  "categorias": [
+    "canoa",
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
+  "badges": [
+    "destacado",
+    "favoritoClientas"
+  ]
 }

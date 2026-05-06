@@ -1,15 +1,26 @@
 {
-  "nombre": "Sandalia Plana",
+  "nombre": "Sandalia Plana Negra Brillos Fiesta",
   "referencia": "JAP8325",
   "precio": 0,
-  "descripcionCorta": "Sandalia plana brillantes color negro.",
-  "descripcionLarga": "Sandalia plana negra con detalles en brillantes. Un diseño que combina la sobriedad del negro con el brillo y la elegancia para destacar en cualquier evento.",
+  "descripcionCorta": "Una plana negra con brillos para eventos, cenas y días en los que quieres destacar cómoda.",
+  "descripcionLarga": "Sandalia plana negra con detalles brillantes que elevan cualquier look sin necesidad de tacón. La selecciono para clientas que quieren verse arregladas en un evento o una salida especial, pero prefieren caminar cómodas y seguras.",
   "imagenPrincipal": "/images/productos/_JAP8325.webp",
-  "imagenes": ["/images/productos/_JAP8325.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8325.webp"
+  ],
   "destacado": false,
   "ordenDestacado": 0,
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "badges": []
 }

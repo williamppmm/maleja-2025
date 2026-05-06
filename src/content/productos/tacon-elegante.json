@@ -1,15 +1,26 @@
 {
-  "nombre": "Tacón Elegante",
+  "nombre": "Tacón Elegante Beige",
   "referencia": "JAP8331",
   "precio": 0,
-  "descripcionCorta": "Tacón elegante beige.",
-  "descripcionLarga": "Tacón elegante en tono beige, líneas limpias y acabado fino. Ideal para ocasiones especiales o looks de oficina con personalidad. Comodidad y estilo en cada paso.",
+  "descripcionCorta": "Un tacón beige de líneas limpias, ideal para alargar visualmente el look con elegancia.",
+  "descripcionLarga": "Tacón elegante en tono beige, con líneas limpias y acabado fino. Es una opción muy favorecedora para oficina, celebraciones o looks de día porque estiliza sin competir con la ropa. Un básico femenino para tener a mano.",
   "imagenPrincipal": "/images/productos/_JAP8331.webp",
-  "imagenes": ["/images/productos/_JAP8331.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8331.webp"
+  ],
   "destacado": false,
   "ordenDestacado": 0,
   "activo": true,
-  "categorias": ["tacon"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "categorias": [
+    "tacon"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "badges": []
 }

@@ -1,15 +1,28 @@
 {
-  "nombre": "Sandalia Plana Aplique Dorado",
+  "nombre": "Sandalia Plana Café Aplique Dorado",
   "referencia": "IMG6240",
   "precio": 0,
-  "descripcionCorta": "Sandalia plana color café con aplique circular dorado.",
-  "descripcionLarga": "La misma silueta minimalista de tira ancha con aplique circular dorado, ahora en un tono café tierra perfecto para la temporada. Un color versátil que combina con looks casuales, bohemios y de oficina. Comodidad y estilo en cada paso.",
+  "descripcionCorta": "Una sandalia plana café, cálida y combinable, con detalle dorado para looks de oficina o fin de semana.",
+  "descripcionLarga": "La misma silueta de tira ancha y aplique dorado, ahora en tono café tierra. La recomiendo si buscas una sandalia plana cómoda y versátil para Cali: combina con prendas neutras, looks bohemios y outfits de oficina sin sentirse formal de más.",
   "imagenPrincipal": "/images/productos/IMG_6240.webp",
-  "imagenes": ["/images/productos/IMG_6240.webp"],
+  "imagenes": [
+    "/images/productos/IMG_6240.webp"
+  ],
   "destacado": false,
   "ordenDestacado": 0,
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
-  "badges": ["nuevo"]
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
+  "badges": [
+    "nuevo"
+  ]
 }

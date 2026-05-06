@@ -1,15 +1,28 @@
 {
-  "nombre": "Sandalia Plana",
+  "nombre": "Sandalia Plana Dorada Clásica",
   "referencia": "JAP8330",
   "precio": 0,
-  "descripcionCorta": "Sandalia plana dorada.",
-  "descripcionLarga": "Sandalia plana en tono dorado, elegante y versátil. Perfecta para complementar looks casuales y de ocasión. Materiales seleccionados con los más altos estándares de calidad y comodidad.",
+  "descripcionCorta": "Una sandalia plana dorada, elegante y fácil de combinar para looks casuales o de ocasión.",
+  "descripcionLarga": "Sandalia plana en tono dorado clásico, seleccionada por su equilibrio entre comodidad y presencia. Funciona con vestidos, pantalones claros o prendas neutras, y te ayuda a elevar el look sin renunciar a una pisada descansada.",
   "imagenPrincipal": "/images/productos/_JAP8330.webp",
-  "imagenes": ["/images/productos/_JAP8330.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8330.webp"
+  ],
   "destacado": true,
   "ordenDestacado": 1,
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
-  "badges": ["destacado"]
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
+  "badges": [
+    "destacado"
+  ]
 }

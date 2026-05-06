@@ -1,15 +1,26 @@
 {
-  "nombre": "Sandalia Plana",
+  "nombre": "Sandalia Plana Negra Apliques Dorados",
   "referencia": "JAP8322",
   "precio": 0,
-  "descripcionCorta": "Sandalia plana negra apliques dorados.",
-  "descripcionLarga": "Sandalia plana en negro con apliques dorados. La combinación negro y dorado es atemporal y sofisticada, perfecta para quien busca elegancia sin esfuerzo.",
+  "descripcionCorta": "Una plana negra y dorada, atemporal y fácil de llevar de día o de noche.",
+  "descripcionLarga": "Sandalia plana en negro con apliques dorados. La combinación negro y dorado nunca falla: se siente sofisticada, combina con casi todo y te permite moverte con comodidad en días de oficina, reuniones o salidas casuales.",
   "imagenPrincipal": "/images/productos/_JAP8322.webp",
-  "imagenes": ["/images/productos/_JAP8322.webp"],
+  "imagenes": [
+    "/images/productos/_JAP8322.webp"
+  ],
   "destacado": false,
   "ordenDestacado": 0,
   "activo": true,
-  "categorias": ["sandalia"],
-  "tallasDisponibles": ["35","36","37","38","39","40"],
+  "categorias": [
+    "sandalia"
+  ],
+  "tallasDisponibles": [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+  ],
   "badges": []
 }
